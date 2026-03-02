@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BattleTheme" format=3 uid="uid://tlkmw8eofwfo"]
+
+[ext_resource type="Texture2D" uid="uid://nhk3ufybqvqd" path="res://assets/sprites/battle_bg_city.png" id="1_bxe8q"]
+[ext_resource type="Script" uid="uid://fyq2q1hlixvo" path="res://scripts/BattleTheme.cs" id="2_m7lo4"]
+
+[resource]
+script = ExtResource("2_m7lo4")
+BackgroundTexture = ExtResource("1_bxe8q")
+metadata/_custom_type_script = "uid://fyq2q1hlixvo"
