@@ -11,7 +11,7 @@ public partial class SceneLoader : Node
 	
 	private Action<Node> _onSceneInstantiated;
 	public static readonly string _worldScene = "res://scenes/game.tscn";
-	public static readonly string _combatScene = "res://scenes/combat_scene.tscn";
+	public static readonly string _combatScene = "res://scenes/battle/combat_scene.tscn";
 
 	[Export] public PackedScene LoadingScreenScene;
 

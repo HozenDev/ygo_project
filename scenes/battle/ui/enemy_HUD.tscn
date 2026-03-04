@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvl3bsbmcsjhx"]
 
-[ext_resource type="PackedScene" uid="uid://ccqgwgg3ytck" path="res://scenes/monster_HUD.tscn" id="1_uvihx"]
+[ext_resource type="PackedScene" uid="uid://ccqgwgg3ytck" path="res://scenes/battle/ui/monster_HUD.tscn" id="1_uvihx"]
 
 [node name="EnemyMonsterStatus" unique_id=333265610 instance=ExtResource("1_uvihx")]
 theme_override_constants/margin_right = 30
