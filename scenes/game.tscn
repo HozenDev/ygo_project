@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dddt5aqu8hisj" path="res://assets/sprites/ygo_streetlamp.png" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://kpwn2etorluw" path="res://assets/sprites/ygo_dispenser.png" id="6_gee14"]
 [ext_resource type="Texture2D" uid="uid://cvnvh801j7wb" path="res://assets/sprites/ygo_streetlamp_string.png" id="6_u5sy4"]
-[ext_resource type="Texture2D" uid="uid://cm2r6eris6pv4" path="res://assets/sprites/Game Boy _ GBC - Yu-Gi-Oh! Dark Duel Stories - Cards - Cards.png" id="8_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("1_iywne")
@@ -273,35 +272,8 @@ texture = ExtResource("6_u5sy4")
 11:6/0 = 0
 10:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtaks"]
-texture = ExtResource("8_0tnpc")
-margins = Vector2i(2, 2)
-separation = Vector2i(2, 2)
-texture_region_size = Vector2i(64, 80)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-9:1/0 = 0
-8:1/0 = 0
-7:1/0 = 0
-6:1/0 = 0
-5:1/0 = 0
-4:1/0 = 0
-3:1/0 = 0
-2:1/0 = 0
-1:1/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_0tnpc"]
 sources/1 = SubResource("TileSetAtlasSource_gee14")
-sources/3 = SubResource("TileSetAtlasSource_vtaks")
 
 [node name="Game" type="Node2D" unique_id=1771515348]
 y_sort_enabled = true

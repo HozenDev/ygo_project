@@ -15,10 +15,15 @@ run/main_scene="uid://p2w15d8f81dg"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneLoader="*uid://dbfinre0hp64w"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/resizable=false
 
 [dotnet]
 

@@ -31,27 +31,43 @@ public partial class Player : CharacterBody2D
 	private void StartBattle() {
 		// 1. Préparer les données du Joueur (souvent stockées dans un Global/Save)
 		var playerBattleInfo = new BattlePlayer {
-			Name = "Yugi",
+			PlayerName = "Yugi",
 			IsPlayer = true,
-			ActiveMonster = new MonsterData("Player Monster", 20, "res://assets/sprites/battle_celtic_warrior.png"),
+			ActiveMonster = new MonsterData{
+				MonsterName = "Celtic Warrior", 
+				Attack = 20, 
+				BattleSpritePath = "res://assets/sprites/battle_celtic_warrior.png",
+				MaxHp = 70,
+				CurrentHp = 30,
+				Level = 30,
+				CardCoordinates = new Vector2(200, 822),
+			},
 			SpritePath = "res://assets/sprites/battle_sprite_yugi.png",
 		};
 
 		// 2. Préparer les données de l'Adversaire (le PNJ)
 		var enemyBattleInfo = new BattlePlayer {
-			Name = "NPC",
+			PlayerName = "NPC",
 			IsPlayer = false,
-			ActiveMonster = new MonsterData("Enemy Monster", 20, "res://assets/sprites/battle_blue_eyes_dragon.png"), // Le monstre principal du PNJ
+			ActiveMonster = new MonsterData{
+				MonsterName = "Blue Eyes Dragon", 
+				Attack = 100, 
+				BattleSpritePath = "res://assets/sprites/battle_blue_eyes_dragon.png",
+				MaxHp = 100,
+				CurrentHp = 80,
+				Level = 50,
+				CardCoordinates = new Vector2(332, 494),
+			},
 			SpritePath = "res://assets/sprites/battle_sprite_kaiba.png",
 		};
 
-		// 3. Charger et Injecter
-		var combatInstance = CombatManager.NewCombat(playerBattleInfo, enemyBattleInfo, ThemeType.CITY);
-
-		// 4. Switcher de scène proprement
-		GetTree().Root.AddChild(combatInstance);
-		GetTree().CurrentScene.QueueFree();
-		GetTree().CurrentScene = combatInstance;
+		SceneLoader.Instance.LoadScene(SceneLoader._combatScene, (node) => 
+		{
+			if (node is CombatManager combatInstance)
+			{
+				combatInstance.Initialize(playerBattleInfo, enemyBattleInfo, ThemeType.CITY);
+			}
+		});
 	}
 	
 	private void LaunchBattle() {

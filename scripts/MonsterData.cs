@@ -3,17 +3,11 @@ using System;
 
 public partial class MonsterData : Node
 {
-	private string m_name;
-	private int m_attack;
-	private string m_battleSpritePath;
-	
-	public MonsterData(string name, int attack, string battleSpritePath) {
-		m_name = name;
-		m_attack = attack;
-		m_battleSpritePath = battleSpritePath;
-	}
-	
-	public string GetBattleSpritePath() {
-		return m_battleSpritePath;
-	}
+	public string MonsterName { get; set; }
+	public int Attack { get; set; }
+	public int Level { get; set; }
+	public int MaxHp { get; set; }
+	public int CurrentHp { get; set; }
+	public string BattleSpritePath { get; set; }
+	public Vector2 CardCoordinates { get; set; }
 }

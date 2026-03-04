@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://bydikwcre05dq"]
 
-[ext_resource type="Texture2D" uid="uid://cm2r6eris6pv4" path="res://assets/sprites/Game Boy _ GBC - Yu-Gi-Oh! Dark Duel Stories - Cards - Cards.png" id="1_sp7ij"]
+[ext_resource type="Script" uid="uid://cwvfxvtmp7dte" path="res://scripts/BattleUIManager.cs" id="1_2a1ha"]
 [ext_resource type="Texture2D" uid="uid://jp45jop703la" path="res://assets/sprites/battle_combat_logo_duel.png" id="2_p4gof"]
+[ext_resource type="PackedScene" uid="uid://bnfi2ybrw5uts" path="res://scenes/player_HUD.tscn" id="2_wvifm"]
+[ext_resource type="PackedScene" uid="uid://cvl3bsbmcsjhx" path="res://scenes/enemy_HUD.tscn" id="4_lgetq"]
+[ext_resource type="PackedScene" uid="uid://jqh15ys4h8k2" path="res://scenes/UIActionMenu.tscn" id="5_lgetq"]
 
-[node name="BattleUI" type="Control" unique_id=1375867816]
+[node name="BattleUI" type="Control" unique_id=1375867816 node_paths=PackedStringArray("_playerHUD", "_enemyHUD", "_actionMenu", "_background")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +17,28 @@ offset_right = -960.0
 offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2a1ha")
+_playerHUD = NodePath("MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus")
+_enemyHUD = NodePath("MarginContainer/VBoxContainer/Top/HBoxContainer/EnemyMonsterStatus")
+_actionMenu = NodePath("MarginContainer/VBoxContainer/ActionMenu")
+_background = NodePath("TextureRect")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=993701234]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=890510388]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=936330894]
 layout_mode = 1
@@ -35,40 +60,8 @@ theme_override_constants/margin_top = 10
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PlayerMonsterStatus" type="MarginContainer" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=925232642]
+[node name="PlayerMonsterStatus" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=333265610 instance=ExtResource("2_wvifm")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme_override_constants/margin_left = 30
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus" unique_id=586234961]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus/HBoxContainer" unique_id=668610917]
-layout_mode = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus/HBoxContainer/MarginContainer" unique_id=1299289160]
-custom_minimum_size = Vector2(48, 60)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("1_sp7ij")
-region_rect = Rect2(200, 822, 64, 80)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus/HBoxContainer" unique_id=1795820874]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Name" type="Panel" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus/HBoxContainer/VBoxContainer" unique_id=1622831500]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HP" type="Panel" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus/HBoxContainer/VBoxContainer" unique_id=1750219503]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="LogoTop" type="MarginContainer" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=193521056]
 custom_minimum_size = Vector2(60, 0)
@@ -80,40 +73,8 @@ size_flags_vertical = 8
 texture = ExtResource("2_p4gof")
 expand_mode = 5
 
-[node name="PlayerMonsterStatus2" type="MarginContainer" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=782940105]
+[node name="EnemyMonsterStatus" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=245378407 instance=ExtResource("4_lgetq")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme_override_constants/margin_right = 30
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus2" unique_id=903257168]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus2/HBoxContainer" unique_id=584993922]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Name" type="Panel" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus2/HBoxContainer/VBoxContainer" unique_id=1514471503]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HP" type="Panel" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus2/HBoxContainer/VBoxContainer" unique_id=546588950]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus2/HBoxContainer" unique_id=2001560148]
-layout_mode = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus2/HBoxContainer/MarginContainer" unique_id=759620028]
-custom_minimum_size = Vector2(48, 60)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("1_sp7ij")
-region_rect = Rect2(332, 494, 64, 80)
 
 [node name="Middle" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1626347849]
 layout_mode = 2
@@ -123,28 +84,5 @@ size_flags_vertical = 3
 visible = false
 layout_mode = 2
 
-[node name="Bottom" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=799759160]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Bottom" unique_id=1177442419]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/Bottom/HBoxContainer" unique_id=675029841]
-custom_minimum_size = Vector2(50, 20)
-layout_mode = 2
-
-[node name="Panel3" type="Panel" parent="MarginContainer/VBoxContainer/Bottom/HBoxContainer" unique_id=811412654]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="Panel4" type="Panel" parent="MarginContainer/VBoxContainer/Bottom/HBoxContainer" unique_id=1827039193]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="Panel5" type="Panel" parent="MarginContainer/VBoxContainer/Bottom/HBoxContainer" unique_id=2053116684]
-custom_minimum_size = Vector2(50, 0)
+[node name="ActionMenu" parent="MarginContainer/VBoxContainer" unique_id=331500470 instance=ExtResource("5_lgetq")]
 layout_mode = 2

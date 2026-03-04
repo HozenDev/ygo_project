@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bnfi2ybrw5uts"]
+
+[ext_resource type="PackedScene" uid="uid://ccqgwgg3ytck" path="res://scenes/monster_HUD.tscn" id="1_738x1"]
+
+[node name="PlayerMonsterStatus" unique_id=333265610 instance=ExtResource("1_738x1")]
+offset_right = 262.0
+offset_bottom = 60.0
+theme_override_constants/margin_left = 30

@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://ccqgwgg3ytck"]
+
+[ext_resource type="Texture2D" uid="uid://daj40h5rob38k" path="res://assets/sprites/gbc_cards.png" id="1_l5lda"]
+[ext_resource type="Script" uid="uid://cj6qb5oooyoew" path="res://scripts/MonsterHUD.cs" id="1_rdvbh"]
+[ext_resource type="Texture2D" uid="uid://d2mhk82d5qkd1" path="res://assets/sprites/battle_ui_tileset.png" id="2_rdvbh"]
+[ext_resource type="FontFile" uid="uid://dxwx8wwcye0o4" path="res://assets/fonts/PixelOperator8.ttf" id="3_1k5ag"]
+[ext_resource type="Texture2D" uid="uid://dh5ldw4oila3b" path="res://assets/sprites/progress_bar_under.png" id="4_ofi6v"]
+[ext_resource type="Texture2D" uid="uid://ceg0oxov3d065" path="res://assets/sprites/progress_bar.png" id="5_cwo8t"]
+
+[node name="MonsterStatus" type="MarginContainer" unique_id=333265610 node_paths=PackedStringArray("_nameLabel", "_levelLabel", "_hpBar", "_hpText", "_cardTexture")]
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_rdvbh")
+_nameLabel = NodePath("MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer/TextsContainer/Name")
+_levelLabel = NodePath("MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer/TextsContainer/Level")
+_hpBar = NodePath("MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer/HPContainer/HP")
+_hpText = NodePath("MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer/HPContainer/HPText")
+_cardTexture = NodePath("MonsterStatusLayout/CardContainer/CardTexture")
+
+[node name="MonsterStatusLayout" type="HBoxContainer" parent="." unique_id=1997545223]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CardContainer" type="MarginContainer" parent="MonsterStatusLayout" unique_id=1515780602]
+layout_mode = 2
+
+[node name="CardTexture" type="NinePatchRect" parent="MonsterStatusLayout/CardContainer" unique_id=352342459]
+custom_minimum_size = Vector2(48, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_l5lda")
+region_rect = Rect2(332, 494, 64, 80)
+
+[node name="MonsterInfo" type="MarginContainer" parent="MonsterStatusLayout" unique_id=393983781]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="BackgroundTexture" type="NinePatchRect" parent="MonsterStatusLayout/MonsterInfo" unique_id=321442211]
+layout_mode = 2
+texture = ExtResource("2_rdvbh")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="InfoMarginContainer" type="MarginContainer" parent="MonsterStatusLayout/MonsterInfo" unique_id=2027487793]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="InfoContainer" type="VBoxContainer" parent="MonsterStatusLayout/MonsterInfo/InfoMarginContainer" unique_id=618751454]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="TextsContainer" type="HBoxContainer" parent="MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer" unique_id=1022776196]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Name" type="Label" parent="MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer/TextsContainer" unique_id=1036586816]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1k5ag")
+theme_override_font_sizes/font_size = 8
+text = "Celtic Warrior"
+
+[node name="Level" type="Label" parent="MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer/TextsContainer" unique_id=1420114763]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1k5ag")
+theme_override_font_sizes/font_size = 8
+text = "Lvl. 30"
+
+[node name="HPContainer" type="HBoxContainer" parent="MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer" unique_id=1828794442]
+layout_mode = 2
+
+[node name="HP" type="TextureProgressBar" parent="MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer/HPContainer" unique_id=1998018329]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 3
+texture_under = ExtResource("4_ofi6v")
+texture_progress = ExtResource("5_cwo8t")
+
+[node name="HPText" type="Label" parent="MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer/HPContainer" unique_id=1572256362]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1k5ag")
+theme_override_font_sizes/font_size = 8
+text = "50/100"

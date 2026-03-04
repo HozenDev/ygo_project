@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://jqh15ys4h8k2"]
+
+[ext_resource type="Script" uid="uid://byvsq7ojolj3w" path="res://scripts/UIActionMenu.cs" id="1_2mgwu"]
+[ext_resource type="FontFile" uid="uid://dxwx8wwcye0o4" path="res://assets/fonts/PixelOperator8.ttf" id="2_ixrho"]
+[ext_resource type="Texture2D" uid="uid://d2mhk82d5qkd1" path="res://assets/sprites/battle_ui_tileset.png" id="3_ixrho"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ixrho"]
+texture = ExtResource("3_ixrho")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="ActionMenu" type="MarginContainer" unique_id=331500470 node_paths=PackedStringArray("ActionButton", "BagButton", "TeamButton", "QuitButton")]
+custom_minimum_size = Vector2(0, 50)
+script = ExtResource("1_2mgwu")
+ActionButton = NodePath("BaseMenuContainer/Action")
+BagButton = NodePath("BaseMenuContainer/Bag")
+TeamButton = NodePath("BaseMenuContainer/Team")
+QuitButton = NodePath("BaseMenuContainer/Quit")
+
+[node name="BaseMenuContainer" type="HBoxContainer" parent="." unique_id=503347176]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Action" type="Button" parent="BaseMenuContainer" unique_id=7784611]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.50140655, 0.5014065, 0.5014065, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8509804, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ixrho")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_ixrho")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ixrho")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ixrho")
+text = "Action"
+
+[node name="Bag" type="Button" parent="BaseMenuContainer" unique_id=255158512]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.50140655, 0.5014065, 0.5014065, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8509804, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ixrho")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_ixrho")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ixrho")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ixrho")
+text = "Bag"
+
+[node name="Team" type="Button" parent="BaseMenuContainer" unique_id=235748173]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.50140655, 0.5014065, 0.5014065, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8509804, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ixrho")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_ixrho")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ixrho")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ixrho")
+text = "Team"
+
+[node name="Quit" type="Button" parent="BaseMenuContainer" unique_id=789216796]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.50140655, 0.5014065, 0.5014065, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8509804, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ixrho")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_ixrho")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ixrho")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ixrho")
+text = "Quit"
+
+[connection signal="pressed" from="BaseMenuContainer/Action" to="." method="ActionPressed"]
+[connection signal="pressed" from="BaseMenuContainer/Bag" to="." method="BagPressed"]
+[connection signal="pressed" from="BaseMenuContainer/Team" to="." method="TeamPressed"]
+[connection signal="pressed" from="BaseMenuContainer/Quit" to="." method="QuitPressed"]

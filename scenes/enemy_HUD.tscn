@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cvl3bsbmcsjhx"]
+
+[ext_resource type="PackedScene" uid="uid://ccqgwgg3ytck" path="res://scenes/monster_HUD.tscn" id="1_uvihx"]
+
+[node name="EnemyMonsterStatus" unique_id=333265610 instance=ExtResource("1_uvihx")]
+theme_override_constants/margin_right = 30
+
+[node name="MonsterStatusLayout" parent="." index="0" unique_id=1997545223]
+layout_direction = 3
+
+[node name="TextsContainer" parent="MonsterStatusLayout/MonsterInfo/InfoMarginContainer/InfoContainer" parent_id_path=PackedInt32Array(618751454) index="0" unique_id=1022776196]
+layout_direction = 3
