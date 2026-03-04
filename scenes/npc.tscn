@@ -1,13 +1,10 @@
-[gd_scene format=3 uid="uid://b4eb6o7gamkmy"]
+[gd_scene format=3 uid="uid://djjch1yvt2ovc"]
 
-[ext_resource type="Script" uid="uid://dvh4qlfwt20ta" path="res://scripts/Player.cs" id="1_g2els"]
-[ext_resource type="Resource" uid="uid://dyauu6a4gwpcp" path="res://resources/players/yugi.tres" id="2_g2els"]
+[ext_resource type="Script" uid="uid://bgw2ndn4l2dkb" path="res://scripts/NPC.cs" id="1_nh2m4"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
-radius = 4.0
-height = 8.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tcuxl"]
+radius = 3.0
+height = 6.0
 
 [sub_resource type="Animation" id="Animation_3vyb7"]
 length = 0.001
@@ -109,7 +106,7 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhqgy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nh2m4"]
 _data = {
 &"RESET": SubResource("Animation_3vyb7"),
 &"idle": SubResource("Animation_g2els"),
@@ -228,44 +225,35 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_fulsm")
 states/Walk/position = Vector2(389, 218)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_d2wvv"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_g2els"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_qhqgy")]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_g2els"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ca6vw"]
 nodes/output/position = Vector2(780, 140)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_3v2ag")
 nodes/MoveStateMachine/position = Vector2(360, 100)
 node_connections = [&"output", 0, &"MoveStateMachine"]
 
-[node name="Player" type="CharacterBody2D" unique_id=875615182 node_paths=PackedStringArray("InteractionZone", "_animationTree", "_sprite")]
-collision_mask = 2
-script = ExtResource("1_g2els")
-PlayerResource = ExtResource("2_g2els")
-InteractionZone = NodePath("InteractionZone")
+[node name="NPC" type="CharacterBody2D" unique_id=333458049 node_paths=PackedStringArray("_animationTree", "_sprite")]
+collision_layer = 6
+script = ExtResource("1_nh2m4")
 _animationTree = NodePath("Animation/AnimationTree")
 _sprite = NodePath("Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1628039449]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2111671457]
 hframes = 4
 vframes = 5
 frame = 12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329052870]
-y_sort_enabled = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=847856634]
 position = Vector2(0, 11)
-shape = SubResource("CapsuleShape2D_g2els")
+shape = SubResource("CapsuleShape2D_tcuxl")
 
-[node name="InteractionZone" type="Area2D" parent="." unique_id=747227953]
-collision_mask = 4
+[node name="Animation" type="Node" parent="." unique_id=1610664203]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone" unique_id=1729608264]
-shape = SubResource("CircleShape2D_g2els")
-
-[node name="Animation" type="Node" parent="." unique_id=1725863789]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation" unique_id=281238542]
-libraries/ = SubResource("AnimationLibrary_qhqgy")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation" unique_id=1542448700]
+libraries/ = SubResource("AnimationLibrary_nh2m4")
 autoplay = &"idle"
 
-[node name="AnimationTree" type="AnimationTree" parent="Animation" unique_id=2131835164]
-tree_root = SubResource("AnimationNodeBlendTree_g2els")
+[node name="AnimationTree" type="AnimationTree" parent="Animation" unique_id=1867648191]
+tree_root = SubResource("AnimationNodeBlendTree_ca6vw")
 anim_player = NodePath("../AnimationPlayer")
 parameters/MoveStateMachine/Idle/blend_position = Vector2(0, 0)
 parameters/MoveStateMachine/Walk/blend_position = Vector2(0, 0)

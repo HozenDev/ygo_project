@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://co1sjmefxuau5"]
+
+[ext_resource type="Texture2D" uid="uid://brhg3lrrjruhm" path="res://assets/sprites/duellists/yugi_muto.png" id="1_hqvhh"]
+[ext_resource type="Script" uid="uid://dqiqssgg46qhh" path="res://scripts/models/CharacterData.cs" id="2_x3bat"]
+
+[resource]
+script = ExtResource("2_x3bat")
+Name = "Hozen"
+Sprite = ExtResource("1_hqvhh")
+Dialogue = "Hello World!"
+metadata/_custom_type_script = "uid://dqiqssgg46qhh"

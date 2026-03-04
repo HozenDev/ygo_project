@@ -1,13 +1,18 @@
 using Godot;
 using System;
 
-public partial class MonsterData : Node
+[GlobalClass]
+public partial class MonsterData : Resource
 {
-	public string MonsterName { get; set; }
-	public int Attack { get; set; }
-	public int Level { get; set; }
-	public int MaxHp { get; set; }
-	public int CurrentHp { get; set; }
-	public string BattleSpritePath { get; set; }
-	public Vector2 CardCoordinates { get; set; }
+	// Information
+	[Export] public int Id { get; set; }
+	[Export] public string Name { get; set; }
+	[Export] public Texture2D BattleSprite { get; set; }
+	[Export] public Vector2 CardCoordinates { get; set; } // Coordinates in the card tileset
+	
+	// Base Stats
+	[Export] public int AttackBase { get; set; }
+	[Export] public int DefenseBase { get; set; }
+	[Export] public int LifeBase { get; set; }
+	[Export] public int SpeedBase { get; set; }
 }

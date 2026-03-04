@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://dyauu6a4gwpcp"]
+
+[ext_resource type="Texture2D" uid="uid://brhg3lrrjruhm" path="res://assets/sprites/duellists/yugi_muto.png" id="1_d37xb"]
+[ext_resource type="Texture2D" uid="uid://drldsawxj04ea" path="res://assets/battle/duellists/yugi.png" id="1_gm6m2"]
+[ext_resource type="Script" uid="uid://t3nkn3j1a5r6" path="res://scripts/Monster.cs" id="2_kfo6x"]
+[ext_resource type="Script" uid="uid://b8v4gttmftpli" path="res://scripts/models/PlayerData.cs" id="2_sm87l"]
+[ext_resource type="Resource" uid="uid://bjlr7eyfqbb8f" path="res://resources/players/monsters/0.tres" id="3_kfo6x"]
+
+[resource]
+script = ExtResource("2_sm87l")
+Party = Array[ExtResource("2_kfo6x")]([ExtResource("3_kfo6x")])
+BattleSprite = ExtResource("1_gm6m2")
+Name = "Yugi"
+Speed = 60.0
+Sprite = ExtResource("1_d37xb")
+metadata/_custom_type_script = "uid://b8v4gttmftpli"

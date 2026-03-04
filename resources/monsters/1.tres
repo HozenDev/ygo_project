@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bvoqa6mwxbcw3"]
+
+[ext_resource type="Texture2D" uid="uid://c2pa18atgcdn7" path="res://assets/battle/monsters/celtic_warrior.png" id="1_38qln"]
+[ext_resource type="Script" uid="uid://d02wyjgldrp7o" path="res://scripts/models/MonsterData.cs" id="2_jsysr"]
+
+[resource]
+script = ExtResource("2_jsysr")
+Id = 1
+Name = "Celtic Warrior"
+BattleSprite = ExtResource("1_38qln")
+CardCoordinates = Vector2(200, 822)
+AttackBase = 8
+DefenseBase = 5
+LifeBase = 10
+SpeedBase = 5
+metadata/_custom_type_script = "uid://d02wyjgldrp7o"

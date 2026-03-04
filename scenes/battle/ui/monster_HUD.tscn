@@ -30,7 +30,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("1_l5lda")
-region_rect = Rect2(332, 494, 64, 80)
+region_rect = Rect2(200, 822, 64, 80)
 
 [node name="MonsterInfo" type="MarginContainer" parent="MonsterStatusLayout" unique_id=393983781]
 layout_mode = 2

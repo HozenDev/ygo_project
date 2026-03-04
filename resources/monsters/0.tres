@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://cjd5ghc6smlfo"]
+
+[ext_resource type="Texture2D" uid="uid://defav5dotyiex" path="res://assets/battle/monsters/blue_eyes_dragon.png" id="1_ualaq"]
+[ext_resource type="Script" uid="uid://d02wyjgldrp7o" path="res://scripts/models/MonsterData.cs" id="2_5vdvd"]
+
+[resource]
+script = ExtResource("2_5vdvd")
+Name = "Blue Eyes Dragon"
+BattleSprite = ExtResource("1_ualaq")
+CardCoordinates = Vector2(332, 494)
+AttackBase = 10
+DefenseBase = 10
+LifeBase = 20
+SpeedBase = 10
+metadata/_custom_type_script = "uid://d02wyjgldrp7o"

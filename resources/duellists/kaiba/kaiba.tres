@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DuellistData" format=3 uid="uid://dpy2mdgdyk4su"]
+
+[ext_resource type="Script" uid="uid://t3nkn3j1a5r6" path="res://scripts/Monster.cs" id="1_3g5ho"]
+[ext_resource type="Texture2D" uid="uid://dpfv5gbuuxij5" path="res://assets/battle/duellists/kaiba.png" id="1_mha73"]
+[ext_resource type="Resource" uid="uid://d4ej1kadm3hhk" path="res://resources/duellists/kaiba/monsters/0.tres" id="2_mha73"]
+[ext_resource type="Texture2D" uid="uid://brhg3lrrjruhm" path="res://assets/sprites/duellists/yugi_muto.png" id="2_poeqi"]
+[ext_resource type="Script" uid="uid://c15i0vwdx1q7x" path="res://scripts/models/DuellistData.cs" id="3_mha73"]
+
+[resource]
+script = ExtResource("3_mha73")
+Party = Array[ExtResource("1_3g5ho")]([ExtResource("2_mha73")])
+BattleSprite = ExtResource("1_mha73")
+Name = "Kaiba"
+Sprite = ExtResource("2_poeqi")
+Dialogue = "Get ready to DUEL!"
+metadata/_custom_type_script = "uid://c15i0vwdx1q7x"

@@ -9,19 +9,22 @@ public partial class MonsterHUD : MarginContainer
 	[Export] private Label _hpText;
 	[Export] private NinePatchRect _cardTexture;
 	
-	public void UpdateUI(MonsterData monster)
+	public void UpdateUI(Monster monster)
 	{
-		_nameLabel.Text = monster.MonsterName;
+		_nameLabel.Text = monster.Nickname;
 		_levelLabel.Text = $"Lv. {monster.Level}";
 		
 		// Life bar update
-		_hpBar.MaxValue = monster.MaxHp;
-		_hpBar.Value = monster.CurrentHp;
-		_hpText.Text = $"{monster.CurrentHp}/{monster.MaxHp}";
-		UpdateBarColor(monster.CurrentHp, monster.MaxHp);
+		_hpBar.MaxValue = monster.MaxLife;
+		Tween tween = CreateTween();
+		tween.TweenProperty(_hpBar, "value", monster.CurrentLife, 0.5f)
+			 .SetTrans(Tween.TransitionType.Circ)
+			 .SetEase(Tween.EaseType.Out);
+		_hpText.Text = $"{monster.CurrentLife}/{monster.MaxLife}";
+		UpdateBarColor(monster.CurrentLife, monster.MaxLife);
 		
 		// card update
-		UpdateCardTexture(monster.CardCoordinates);
+		UpdateCardTexture(monster.Data.CardCoordinates);
 	}
 
 	private void UpdateBarColor(int current, int max)

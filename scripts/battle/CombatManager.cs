@@ -13,8 +13,8 @@ public partial class CombatManager : Node2D
 	[Export] public BattleUIManager _battleUI;
 
 	// Players data
-	public BattlePlayer m_playerData;
-	public BattlePlayer m_enemyData;
+	public IDuellist m_playerData;
+	public IDuellist m_enemyData;
 	
 	public const int PlayerDistFromOriginX = 260; // In pixel
 	public const int PlayerDistFromOriginY = 80; // In pixel
@@ -28,16 +28,11 @@ public partial class CombatManager : Node2D
 		_battleUI.ActionForwarded += OnActionSelected;
 	}
 	
-	private void SetActiveMonster(MonsterData monster, bool isEnemy) 
+	private void SetActiveMonster(Monster monster, bool isEnemy) 
 	{
 		Node2D BattleSide = (isEnemy) ? BattleEnemySide : BattlePlayerSide;
 		Sprite2D ActiveMonsterSprite = BattleSide.GetNode<Sprite2D>("ActiveMonster");
-		try {
-			ActiveMonsterSprite.Texture = ResourceLoader.Load<Texture2D>(monster.BattleSpritePath);
-		}
-		catch (Exception e) {
-			GD.PushError("Error when loading the active monster texture:\n", e);
-		}
+		ActiveMonsterSprite.Texture = monster.Data.BattleSprite;
 		
 		int XPosition = ((isEnemy) ? 1 : -1 ) * MonsterDistFromOriginX;
 		int YPosition = MonsterDistFromOriginY;
@@ -48,21 +43,21 @@ public partial class CombatManager : Node2D
 		ActiveMonsterSprite.Offset = new Vector2(0, -ActiveMonsterSprite.Texture.GetSize().Y / 2);
 	}
 	
-	private void SetPlayer(BattlePlayer player, bool isEnemy) 
+	private void SetPlayer(IDuellist duellist, bool isEnemy) 
 	{
 		Node2D BattleSide = null;
 		
 		if (isEnemy) {
-			m_enemyData = player;
+			m_enemyData = duellist;
 			BattleSide = BattleEnemySide;
 		}
 		else {
-			m_playerData = player;
+			m_playerData = duellist;
 			BattleSide = BattlePlayerSide;
 		}
 		
 		Sprite2D PlayerSprite = BattleSide.GetNode<Sprite2D>("Player");
-		PlayerSprite.Texture = ResourceLoader.Load<Texture2D>(player.SpritePath);
+		PlayerSprite.Texture = duellist.GetDuelData().BattleSprite;
 		PlayerSprite.FlipH = isEnemy;
 		
 		int XPosition = ((isEnemy) ? 1 : -1 ) * PlayerDistFromOriginX;
@@ -70,15 +65,15 @@ public partial class CombatManager : Node2D
 		PlayerSprite.Position = new Vector2(XPosition, YPosition);
 	}
 	
-	public void SetMainPlayer(BattlePlayer player) => SetPlayer(player, false);
-	public void SetEnemyPlayer(BattlePlayer player) => SetPlayer(player, true);
-	public void SetPlayerActiveMonster(MonsterData monster) => SetActiveMonster(monster, false);
-	public void SetEnemyActiveMonster(MonsterData monster) => SetActiveMonster(monster, true);
+	public void SetMainPlayer(IDuellist duellist) => SetPlayer(duellist, false);
+	public void SetEnemyPlayer(IDuellist duellist) => SetPlayer(duellist, true);
+	public void SetPlayerActiveMonster(Monster monster) => SetActiveMonster(monster, false);
+	public void SetEnemyActiveMonster(Monster monster) => SetActiveMonster(monster, true);
 	
-	private void MonsterAttack(MonsterData attack, MonsterData receiver)
+	private void MonsterAttack(Monster attacker, Monster receiver)
 	{
-		GD.Print($"'{attack.MonsterName}' is attacking '{receiver.MonsterName}'!");
-		receiver.CurrentHp -= attack.Attack;
+		GD.Print($"'{attacker.Nickname}' is attacking '{receiver.Nickname}'!");
+		receiver.CurrentLife -= attacker.Attack;
 		UpdateUI();
 	}
 	
@@ -97,7 +92,7 @@ public partial class CombatManager : Node2D
 		switch (action)
 		{
 			case ActionType.ATTACK:
-				MonsterAttack(m_playerData.ActiveMonster, m_enemyData.ActiveMonster);
+				MonsterAttack(m_playerData.GetFirstValidMonster(), m_enemyData.GetFirstValidMonster());
 				break;
 			case ActionType.BAG:
 				OpenBag();
@@ -119,7 +114,19 @@ public partial class CombatManager : Node2D
 		}
 	}
 	
-	public void Initialize(BattlePlayer playerData, BattlePlayer enemyData, ThemeType theme) {
+	private void InitMonsters() {
+		foreach(var monster in m_playerData.GetDuelData().Party)
+		{
+			monster.Init();
+		}
+		
+		foreach(var monster in m_enemyData.GetDuelData().Party)
+		{
+			monster.Init();
+		}
+	}
+	
+	public void Initialize(IDuellist playerData, IDuellist enemyData, ThemeType theme) {
 		
 		// Initiliaze theme
 		SetTheme(theme);
@@ -128,9 +135,12 @@ public partial class CombatManager : Node2D
 		SetMainPlayer(playerData);
 		SetEnemyPlayer(enemyData);
 		
+		// Initialize Monsters
+		InitMonsters();
+		
 		// Initialize Active Monsters
-		SetPlayerActiveMonster(m_playerData.ActiveMonster);
-		SetEnemyActiveMonster(m_enemyData.ActiveMonster);
+		SetPlayerActiveMonster(m_playerData.GetActiveMonster());
+		SetEnemyActiveMonster(m_enemyData.GetActiveMonster());
 		
 		UpdateUI();
 	}
@@ -144,13 +154,13 @@ public partial class CombatManager : Node2D
 		bool win = false;
 		bool lose = false;
 		
-		if (m_enemyData.ActiveMonster.CurrentHp == 0 )
+		if (!m_enemyData.CanFight())
 		{
 			GD.Print("You win!");
 			win = true;
 			// Win animation
 		}
-		else if (m_playerData.ActiveMonster.CurrentHp == 0) 
+		else if (!m_playerData.CanFight()) 
 		{
 			GD.Print("You lose!");
 			lose = true;

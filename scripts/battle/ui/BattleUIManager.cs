@@ -20,15 +20,15 @@ public partial class BattleUIManager : Control
 		}
 	}
 	
-	private void UpdatePlayerUI(BattlePlayer player) {
-		_playerHUD.UpdateUI(player.ActiveMonster);
+	private void UpdatePlayerUI(IDuellist duellist) {
+		_playerHUD.UpdateUI(duellist.GetActiveMonster());
 	}
 	
-	private void UpdateEnemyUI(BattlePlayer player) {
-		_enemyHUD.UpdateUI(player.ActiveMonster);
+	private void UpdateEnemyUI(IDuellist duellist) {
+		_enemyHUD.UpdateUI(duellist.GetActiveMonster());
 	}
 	
-	public void UpdateUI(BattlePlayer player, BattlePlayer enemy, BattleTheme theme) {
+	public void UpdateUI(IDuellist player, IDuellist enemy, BattleTheme theme) {
 		SetTheme(theme);
 		UpdatePlayerUI(player);
 		UpdateEnemyUI(enemy);

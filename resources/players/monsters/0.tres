@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" format=3 uid="uid://bjlr7eyfqbb8f"]
+
+[ext_resource type="Resource" uid="uid://bvoqa6mwxbcw3" path="res://resources/monsters/1.tres" id="1_jeilq"]
+[ext_resource type="Script" uid="uid://t3nkn3j1a5r6" path="res://scripts/Monster.cs" id="2_ffgf2"]
+
+[resource]
+script = ExtResource("2_ffgf2")
+Data = ExtResource("1_jeilq")
+Level = 10
+metadata/_custom_type_script = "uid://t3nkn3j1a5r6"
