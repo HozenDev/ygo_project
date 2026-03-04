@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v8b3v2cmyc5n"
-path="res://.godot/imported/kame_game_house.png-ffdc8630b5f28e219afc610c0ae9e342.ctex"
+uid="uid://bumn8vrojbpsw"
+path="res://.godot/imported/progress_bar_over.png-01b00e173f8c20e71962b7cc046f64d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/kame_game_house.png"
-dest_files=["res://.godot/imported/kame_game_house.png-ffdc8630b5f28e219afc610c0ae9e342.ctex"]
+source_file="res://assets/battle/ui/progress_bar_over.png"
+dest_files=["res://.godot/imported/progress_bar_over.png-01b00e173f8c20e71962b7cc046f64d8.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceg0oxov3d065"
-path="res://.godot/imported/progress_bar.png-3aa790af64291536e6694ebe35943a8d.ctex"
+uid="uid://jp45jop703la"
+path="res://.godot/imported/battle_combat_logo_duel.png-1d24cfb6aa9f3a3aa52c28aa2610c935.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/progress_bar.png"
-dest_files=["res://.godot/imported/progress_bar.png-3aa790af64291536e6694ebe35943a8d.ctex"]
+source_file="res://assets/battle/ui/battle_combat_logo_duel.png"
+dest_files=["res://.godot/imported/battle_combat_logo_duel.png-1d24cfb6aa9f3a3aa52c28aa2610c935.ctex"]
 
 [params]
 

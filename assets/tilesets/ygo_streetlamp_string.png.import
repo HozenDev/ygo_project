@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8ho0yb4ymyye"
-path="res://.godot/imported/dark_magician_small.png-748ad5f030f40646113110f6c1d5d297.ctex"
+uid="uid://cvnvh801j7wb"
+path="res://.godot/imported/ygo_streetlamp_string.png-64579233056159bc8c4920c4fd6c8fdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/dark_magician_small.png"
-dest_files=["res://.godot/imported/dark_magician_small.png-748ad5f030f40646113110f6c1d5d297.ctex"]
+source_file="res://assets/tilesets/ygo_streetlamp_string.png"
+dest_files=["res://.godot/imported/ygo_streetlamp_string.png-64579233056159bc8c4920c4fd6c8fdc.ctex"]
 
 [params]
 

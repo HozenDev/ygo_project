@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c142nnnhakvvd" path="res://scripts/CombatManager.cs" id="1_ik0t7"]
 [ext_resource type="Resource" uid="uid://tlkmw8eofwfo" path="res://resources/battle_themes/city.tres" id="2_m17q1"]
 [ext_resource type="PackedScene" uid="uid://btbhvpavdpinc" path="res://scenes/battle_player_side.tscn" id="3_a2e2y"]
-[ext_resource type="Texture2D" uid="uid://nhk3ufybqvqd" path="res://assets/sprites/battle_bg_city.png" id="3_m2d54"]
+[ext_resource type="Texture2D" uid="uid://nhk3ufybqvqd" path="res://assets/battle/backgrounds/battle_bg_city.png" id="3_m2d54"]
 [ext_resource type="PackedScene" uid="uid://bydikwcre05dq" path="res://scenes/battle_ui.tscn" id="4_a2e2y"]
 
 [node name="CombatScene" type="Node2D" unique_id=1299179161 node_paths=PackedStringArray("BattlePlayerSide", "BattleEnemySide", "_background", "_battleUI")]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2pa18atgcdn7"
-path="res://.godot/imported/battle_celtic_warrior.png-d91fd62d39e93f6b674172a89e1508c7.ctex"
+uid="uid://bo4g7ofc3t5qm"
+path="res://.godot/imported/ygo_trees.png-001d31ec35bea14c6f7c6fa198d5dcd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/battle_celtic_warrior.png"
-dest_files=["res://.godot/imported/battle_celtic_warrior.png-d91fd62d39e93f6b674172a89e1508c7.ctex"]
+source_file="res://assets/tilesets/ygo_trees.png"
+dest_files=["res://.godot/imported/ygo_trees.png-001d31ec35bea14c6f7c6fa198d5dcd8.ctex"]
 
 [params]
 

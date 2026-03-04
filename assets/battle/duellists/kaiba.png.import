@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jp45jop703la"
-path="res://.godot/imported/battle_combat_logo_duel.png-e3e35338863186e13f4be786a35709fe.ctex"
+uid="uid://dpfv5gbuuxij5"
+path="res://.godot/imported/kaiba.png-7e781240479bff0012804054132a574a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/battle_combat_logo_duel.png"
-dest_files=["res://.godot/imported/battle_combat_logo_duel.png-e3e35338863186e13f4be786a35709fe.ctex"]
+source_file="res://assets/battle/duellists/kaiba.png"
+dest_files=["res://.godot/imported/kaiba.png-7e781240479bff0012804054132a574a.ctex"]
 
 [params]
 

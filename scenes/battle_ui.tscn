@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bydikwcre05dq"]
 
 [ext_resource type="Script" uid="uid://cwvfxvtmp7dte" path="res://scripts/BattleUIManager.cs" id="1_2a1ha"]
-[ext_resource type="Texture2D" uid="uid://jp45jop703la" path="res://assets/sprites/battle_combat_logo_duel.png" id="2_p4gof"]
+[ext_resource type="Texture2D" uid="uid://jp45jop703la" path="res://assets/battle/ui/battle_combat_logo_duel.png" id="2_p4gof"]
 [ext_resource type="PackedScene" uid="uid://bnfi2ybrw5uts" path="res://scenes/player_HUD.tscn" id="2_wvifm"]
 [ext_resource type="PackedScene" uid="uid://cvl3bsbmcsjhx" path="res://scenes/enemy_HUD.tscn" id="4_lgetq"]
 [ext_resource type="PackedScene" uid="uid://jqh15ys4h8k2" path="res://scenes/UIActionMenu.tscn" id="5_lgetq"]

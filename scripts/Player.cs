@@ -36,13 +36,13 @@ public partial class Player : CharacterBody2D
 			ActiveMonster = new MonsterData{
 				MonsterName = "Celtic Warrior", 
 				Attack = 20, 
-				BattleSpritePath = "res://assets/sprites/battle_celtic_warrior.png",
+				BattleSpritePath = "res://assets/battle/monsters/celtic_warrior.png",
 				MaxHp = 70,
 				CurrentHp = 30,
 				Level = 30,
 				CardCoordinates = new Vector2(200, 822),
 			},
-			SpritePath = "res://assets/sprites/battle_sprite_yugi.png",
+			SpritePath = "res://assets/battle/duellists/yugi.png",
 		};
 
 		// 2. Préparer les données de l'Adversaire (le PNJ)
@@ -52,13 +52,13 @@ public partial class Player : CharacterBody2D
 			ActiveMonster = new MonsterData{
 				MonsterName = "Blue Eyes Dragon", 
 				Attack = 100, 
-				BattleSpritePath = "res://assets/sprites/battle_blue_eyes_dragon.png",
+				BattleSpritePath = "res://assets/battle/monsters/blue_eyes_dragon.png",
 				MaxHp = 100,
 				CurrentHp = 80,
 				Level = 50,
 				CardCoordinates = new Vector2(332, 494),
 			},
-			SpritePath = "res://assets/sprites/battle_sprite_kaiba.png",
+			SpritePath = "res://assets/battle/duellists/kaiba.png",
 		};
 
 		SceneLoader.Instance.LoadScene(SceneLoader._combatScene, (node) => 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m7fpqcfxnlyv"
-path="res://.godot/imported/domino_city_backbround_2.png-eed0e3a6cbc3bfa60384cc890db2fc72.ctex"
+uid="uid://bk5g8rp8v4res"
+path="res://.godot/imported/road_bg.png-b81450fa04cbfa51d8d9380e976cb4fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/domino_city_backbround_2.png"
-dest_files=["res://.godot/imported/domino_city_backbround_2.png-eed0e3a6cbc3bfa60384cc890db2fc72.ctex"]
+source_file="res://assets/tilesets/road_bg.png"
+dest_files=["res://.godot/imported/road_bg.png-b81450fa04cbfa51d8d9380e976cb4fa.ctex"]
 
 [params]
 

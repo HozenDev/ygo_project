@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bumn8vrojbpsw"
-path="res://.godot/imported/progress_bar_over.png-496fb7246ef1f42e0eca4141c34e9ffb.ctex"
+uid="uid://c2pa18atgcdn7"
+path="res://.godot/imported/celtic_warrior.png-ccf12d29d58e91a99364c44aacb0fd2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/progress_bar_over.png"
-dest_files=["res://.godot/imported/progress_bar_over.png-496fb7246ef1f42e0eca4141c34e9ffb.ctex"]
+source_file="res://assets/battle/monsters/celtic_warrior.png"
+dest_files=["res://.godot/imported/celtic_warrior.png-ccf12d29d58e91a99364c44aacb0fd2a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dddt5aqu8hisj"
-path="res://.godot/imported/ygo_streetlamp.png-44b2b97fdd837b99138c6ee842d13713.ctex"
+uid="uid://d2mhk82d5qkd1"
+path="res://.godot/imported/battle_ui_tileset.png-468510f01f41aacf14a8ef097dc37e17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ygo_streetlamp.png"
-dest_files=["res://.godot/imported/ygo_streetlamp.png-44b2b97fdd837b99138c6ee842d13713.ctex"]
+source_file="res://assets/battle/ui/battle_ui_tileset.png"
+dest_files=["res://.godot/imported/battle_ui_tileset.png-468510f01f41aacf14a8ef097dc37e17.ctex"]
 
 [params]
 

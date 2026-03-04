@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://defav5dotyiex"
-path="res://.godot/imported/battle_blue_eyes_dragon.png-dea32b8e56c944fa05ad972ef617e131.ctex"
+uid="uid://daj40h5rob38k"
+path="res://.godot/imported/gbc_cards.png-90b547b681660e363a42b0280f9270f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/battle_blue_eyes_dragon.png"
-dest_files=["res://.godot/imported/battle_blue_eyes_dragon.png-dea32b8e56c944fa05ad972ef617e131.ctex"]
+source_file="res://assets/sprites/cards/gbc_cards.png"
+dest_files=["res://.godot/imported/gbc_cards.png-90b547b681660e363a42b0280f9270f7.ctex"]
 
 [params]
 

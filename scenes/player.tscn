@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4eb6o7gamkmy"]
 
-[ext_resource type="Texture2D" uid="uid://brhg3lrrjruhm" path="res://assets/sprites/yugi_muto.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://brhg3lrrjruhm" path="res://assets/sprites/duellists/yugi_muto.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvh4qlfwt20ta" path="res://scripts/Player.cs" id="1_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://ccqgwgg3ytck"]
 
-[ext_resource type="Texture2D" uid="uid://daj40h5rob38k" path="res://assets/sprites/gbc_cards.png" id="1_l5lda"]
+[ext_resource type="Texture2D" uid="uid://daj40h5rob38k" path="res://assets/sprites/cards/gbc_cards.png" id="1_l5lda"]
 [ext_resource type="Script" uid="uid://cj6qb5oooyoew" path="res://scripts/MonsterHUD.cs" id="1_rdvbh"]
-[ext_resource type="Texture2D" uid="uid://d2mhk82d5qkd1" path="res://assets/sprites/battle_ui_tileset.png" id="2_rdvbh"]
+[ext_resource type="Texture2D" uid="uid://d2mhk82d5qkd1" path="res://assets/battle/ui/battle_ui_tileset.png" id="2_rdvbh"]
 [ext_resource type="FontFile" uid="uid://dxwx8wwcye0o4" path="res://assets/fonts/PixelOperator8.ttf" id="3_1k5ag"]
-[ext_resource type="Texture2D" uid="uid://dh5ldw4oila3b" path="res://assets/sprites/progress_bar_under.png" id="4_ofi6v"]
-[ext_resource type="Texture2D" uid="uid://ceg0oxov3d065" path="res://assets/sprites/progress_bar.png" id="5_cwo8t"]
+[ext_resource type="Texture2D" uid="uid://dh5ldw4oila3b" path="res://assets/battle/ui/progress_bar_under.png" id="4_ofi6v"]
+[ext_resource type="Texture2D" uid="uid://ceg0oxov3d065" path="res://assets/battle/ui/progress_bar.png" id="5_cwo8t"]
 
 [node name="MonsterStatus" type="MarginContainer" unique_id=333265610 node_paths=PackedStringArray("_nameLabel", "_levelLabel", "_hpBar", "_hpText", "_cardTexture")]
 size_flags_horizontal = 3

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daj40h5rob38k"
-path="res://.godot/imported/gbc_cards.png-6a00f3d226be7a1d6e64a8faa78d8bdd.ctex"
+uid="uid://m7fpqcfxnlyv"
+path="res://.godot/imported/domino_city_backbround_2.png-4a9d610296c0b0ab429c26fcc29ea97a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/gbc_cards.png"
-dest_files=["res://.godot/imported/gbc_cards.png-6a00f3d226be7a1d6e64a8faa78d8bdd.ctex"]
+source_file="res://assets/battle/backgrounds/domino_city_backbround_2.png"
+dest_files=["res://.godot/imported/domino_city_backbround_2.png-4a9d610296c0b0ab429c26fcc29ea97a.ctex"]
 
 [params]
 

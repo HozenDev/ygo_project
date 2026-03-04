@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drldsawxj04ea"
-path="res://.godot/imported/battle_sprite_yugi.png-f0951d491673825eedbf5531da023638.ctex"
+uid="uid://v8b3v2cmyc5n"
+path="res://.godot/imported/kame_game_house.png-5415c1fd5fc5a941bb30f5dc9be2641a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/battle_sprite_yugi.png"
-dest_files=["res://.godot/imported/battle_sprite_yugi.png-f0951d491673825eedbf5531da023638.ctex"]
+source_file="res://assets/tilesets/buildings/kame_game_house.png"
+dest_files=["res://.godot/imported/kame_game_house.png-5415c1fd5fc5a941bb30f5dc9be2641a.ctex"]
 
 [params]
 

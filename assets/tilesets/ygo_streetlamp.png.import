@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nhk3ufybqvqd"
-path="res://.godot/imported/battle_bg_city.png-10953ec8ec33a28b36aa9957f2d3c4a7.ctex"
+uid="uid://dddt5aqu8hisj"
+path="res://.godot/imported/ygo_streetlamp.png-71cf4e4f6c758ca2d46e660ef79af8fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/battle_bg_city.png"
-dest_files=["res://.godot/imported/battle_bg_city.png-10953ec8ec33a28b36aa9957f2d3c4a7.ctex"]
+source_file="res://assets/tilesets/ygo_streetlamp.png"
+dest_files=["res://.godot/imported/ygo_streetlamp.png-71cf4e4f6c758ca2d46e660ef79af8fc.ctex"]
 
 [params]
 

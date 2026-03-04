@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo4g7ofc3t5qm"
-path="res://.godot/imported/ygo_trees.png-1af300d8118915f26896900bf4437520.ctex"
+uid="uid://defav5dotyiex"
+path="res://.godot/imported/blue_eyes_dragon.png-3ecdbe91584b7b91b432ee0b3649fc7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ygo_trees.png"
-dest_files=["res://.godot/imported/ygo_trees.png-1af300d8118915f26896900bf4437520.ctex"]
+source_file="res://assets/battle/monsters/blue_eyes_dragon.png"
+dest_files=["res://.godot/imported/blue_eyes_dragon.png-3ecdbe91584b7b91b432ee0b3649fc7a.ctex"]
 
 [params]
 
