@@ -14,7 +14,9 @@ public partial class NPCDuellist : Character<DuellistData>, IDuellist
 		InteractableZone.Interact = new Callable(this, MethodName.Interact);
 	}
 	
-	public virtual void Interact(Player player) {
+	public virtual void Interact(Player player) 
+	{
+		FacePlayer(player);
 		
 		if (DialogueManager.Instance.IsActive) {
 			DialogueManager.Instance.AdvanceDialogue(player);

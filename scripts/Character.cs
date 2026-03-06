@@ -40,6 +40,19 @@ public partial class Character<T> : CharacterBody2D where T : CharacterData
 		}
 	}
 	
+	private void UpdateFaceDirection(Vector2 direction) {
+		if (_animationTree != null) {
+			_animationTree.Set("parameters/MoveStateMachine/Idle/blend_position", direction);
+		}
+	}
+	
+	public void FacePlayer(Player player) {
+		Vector2 directionToPlayer = (player.GlobalPosition - GlobalPosition).Normalized();
+		directionToPlayer.X = Mathf.Round(directionToPlayer.X);
+		directionToPlayer.Y = Mathf.Round(directionToPlayer.Y);
+		UpdateFaceDirection(directionToPlayer);
+	}
+	
 	public virtual void UpdateDirection() {
 		// _direction = new Vector2(0, 0);
 	}

@@ -24,7 +24,7 @@ animation = &"player/idle_right"
 animation = &"player/idle_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yilvp"]
-animation = &"player/idle_right"
+animation = &"player/idle_left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kh31d"]
 animation = &"player/idle_left"
@@ -121,7 +121,6 @@ states/Walk/position = Vector2(389, 218)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_d2wvv"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_g2els"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_qhqgy")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ca6vw"]
-graph_offset = Vector2(37.96216, 14.121613)
 nodes/output/position = Vector2(780, 140)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_3v2ag")
 nodes/MoveStateMachine/position = Vector2(360, 100)
@@ -137,7 +136,7 @@ _sprite = NodePath("Sprite2D")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2111671457]
 hframes = 3
 vframes = 8
-frame = 9
+frame = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=847856634]
 position = Vector2(0, 11)

@@ -16,6 +16,8 @@ public partial class NPC : Character<CharacterData>
 	
 	public virtual void Interact(Player player)
 	{
+		FacePlayer(player);
+		
 		//GD.Print($"Bonjour {player.Data.Name}, je suis {Data.Name} !");
 		if (DialogueManager.Instance.IsActive) {
 			DialogueManager.Instance.AdvanceDialogue(player);
