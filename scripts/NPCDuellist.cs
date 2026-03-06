@@ -1,16 +1,28 @@
 using Godot;
 using System;
 
-public partial class NPCDuellist : Character<DuellistData>, IDuellist, IInteractable
+public partial class NPCDuellist : Character<DuellistData>, IDuellist
 {
 	[Export] public DuellistData NPCResource {
 		get => Data; 
 		set => Data = value; 
 	}
+	[Export] public IInteractable InteractableZone;
+	
+	public override void _Ready() {
+		base._Ready();
+		InteractableZone.Interact = new Callable(this, MethodName.Interact);
+	}
 	
 	public virtual void Interact(Player player) {
-		GD.Print($"Get ready {player.Data.Name}!");
-		player.StartDuel(this);
+		
+		if (DialogueManager.Instance.IsActive) {
+			DialogueManager.Instance.AdvanceDialogue(player);
+			player.StartDuel(this);
+		}
+		else {
+			DialogueManager.Instance.StartDialogue(player, Data.Dialogue);
+		}
 	}
 	
 	public DuellistData GetDuelData() => Data;

@@ -1,4 +1,7 @@
-public interface IInteractable
+using Godot;
+using System;
+
+public partial class IInteractable : Area2D
 {
-	public void Interact(Player player);
+	public Callable Interact { get; set; }
 }

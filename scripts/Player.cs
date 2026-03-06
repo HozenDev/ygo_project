@@ -7,7 +7,7 @@ public partial class Player : Character<PlayerData>, IDuellist
 		get => Data; 
 		set => Data = value; 
 	}
-	[Export] public Area2D InteractionZone;
+	[Export] public RayCast2D _rayCast;
 	
 	public DuellistData GetDuelData() => Data;
 	
@@ -37,29 +37,32 @@ public partial class Player : Character<PlayerData>, IDuellist
 	
 	public override void _Input(InputEvent @event)
 	{
-		if (@event.IsActionPressed("interact")) // Assure-toi de créer cette action dans Input Map
-		{
-			CheckInteraction();
-		}
+		if (!@event.IsActionPressed("interact")) return;
+		CheckInteraction();
 	}
 	
 	private void CheckInteraction()
 	{
-		var overlappingBodies = InteractionZone.GetOverlappingBodies();
-
-		foreach (var body in overlappingBodies)
+		if (_rayCast.IsColliding())
 		{
-			// On vérifie si le corps touché possède l'interface IInteractable
-			if (body is IInteractable interactable)
+			var collider = _rayCast.GetCollider();
+
+			if (collider is IInteractable interactable)
 			{
-				interactable.Interact(this);
-				break; // On interagit avec le premier objet trouvé
+				interactable.Interact.Call(this);
+			}
+			else {
+				GD.Print(collider);
 			}
 		}
 	}
 	
 	public override void UpdateDirection() {
 		_direction = Input.GetVector("left", "right", "up", "down");
+		
+		if (_direction != Vector2.Zero) {
+			_rayCast.TargetPosition = _direction.Normalized() * 20;
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)

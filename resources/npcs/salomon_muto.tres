@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://c7wrpi0m8gkdq"]
+
+[ext_resource type="Texture2D" uid="uid://ltcxb2ma3i18" path="res://assets/sprites/npcs/salomon_muto.png" id="1_ilojr"]
+[ext_resource type="Script" uid="uid://dqiqssgg46qhh" path="res://scripts/models/CharacterData.cs" id="2_mq64i"]
+
+[resource]
+script = ExtResource("2_mq64i")
+Name = "Salomon"
+Id = 1
+Sprite = ExtResource("1_ilojr")
+Dialogue = "Hello!"
+metadata/_custom_type_script = "uid://dqiqssgg46qhh"

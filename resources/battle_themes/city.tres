@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BattleTheme" format=3 uid="uid://tlkmw8eofwfo"]
 
-[ext_resource type="Texture2D" uid="uid://m7fpqcfxnlyv" path="res://assets/battle/backgrounds/domino_city_backbround_2.png" id="1_bxe8q"]
+[ext_resource type="Texture2D" uid="uid://nhk3ufybqvqd" path="res://assets/battle/backgrounds/battle_bg_city.png" id="1_bxe8q"]
 [ext_resource type="Script" uid="uid://fyq2q1hlixvo" path="res://scripts/battle/themes/BattleTheme.cs" id="2_m7lo4"]
 
 [resource]

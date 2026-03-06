@@ -12,9 +12,11 @@ public partial class Monster : Resource
 	public int CurrentSpeed { get; set; }
 	
 	[Export] public int Level { get; set; }
-	// [Export] public int Experience { get; set; }
+	[Export] public int Experience { get; set; }
 	[Export] public string Nickname { get; set; }
 
+	// todo: create a curve stats (see tutorial)
+	// Manage experience
 	public int MaxLife => Data.LifeBase + (Level * 5);
 	public int Attack => Data.DefenseBase + (Level * 3);
 	public int Defense => Data.AttackBase + (Level * 3);

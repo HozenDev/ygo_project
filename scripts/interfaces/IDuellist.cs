@@ -13,10 +13,12 @@ public interface IDuellist
 	}
 	
 	public Monster GetFirstValidMonster() {
+		// Todo: manage the first valid monster
 		return GetDuelData().Party[0];
 	}
 	
 	public Monster GetActiveMonster() {
+		// Todo: manage active monsters
 		return GetDuelData().Party[0];
 	}
 }

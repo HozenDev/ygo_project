@@ -12,11 +12,12 @@ BattlePlayerSide = NodePath("BattlePlayerSide")
 BattleEnemySide = NodePath("BattleEnemySide")
 _background = NodePath("Background")
 _theme = ExtResource("2_m17q1")
-_battleUI = NodePath("BattleUI")
+_battleUI = NodePath("CanvasLayer/BattleUI")
 
-[node name="BattleUI" parent="." unique_id=1375867816 instance=ExtResource("4_a2e2y")]
-offset_right = 320.0
-offset_bottom = 180.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1595432847]
+layer = -1
+
+[node name="BattleUI" parent="CanvasLayer" unique_id=1375867816 instance=ExtResource("4_a2e2y")]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=308732897]
 visible = false

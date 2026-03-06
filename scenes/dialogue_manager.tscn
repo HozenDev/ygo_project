@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cmivj25axi7kr"]
+
+[ext_resource type="Script" uid="uid://bnjoh8r5x1mbp" path="res://scripts/DialogueManager.cs" id="1_516v5"]
+[ext_resource type="FontFile" uid="uid://dxwx8wwcye0o4" path="res://assets/fonts/PixelOperator8.ttf" id="1_jbixp"]
+
+[node name="DialogueManager" type="CanvasLayer" unique_id=849750992 node_paths=PackedStringArray("DialogueBox", "DialogueText")]
+process_mode = 2
+script = ExtResource("1_516v5")
+DialogueBox = NodePath("Box")
+DialogueText = NodePath("Box/TextContainer/Text")
+
+[node name="Box" type="MarginContainer" parent="." unique_id=41268775]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Background" type="ColorRect" parent="Box" unique_id=749968410]
+layout_mode = 2
+
+[node name="TextContainer" type="MarginContainer" parent="Box" unique_id=1962576430]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Text" type="Label" parent="Box/TextContainer" unique_id=1149310038]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jbixp")
+autowrap_mode = 3

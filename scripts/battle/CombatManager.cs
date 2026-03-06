@@ -79,8 +79,7 @@ public partial class CombatManager : Node2D
 	
 	private void OpenBag() {
 		GD.Print("Opening the bag...");
-		// Handle bag opening
-		// List consumable items
+		// TODO: Bag manager
 	}
 	
 	private void Quit() {

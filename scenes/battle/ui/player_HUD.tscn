@@ -3,6 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://ccqgwgg3ytck" path="res://scenes/battle/ui/monster_HUD.tscn" id="1_738x1"]
 
 [node name="PlayerMonsterStatus" unique_id=333265610 instance=ExtResource("1_738x1")]
-offset_right = 262.0
-offset_bottom = 60.0
-theme_override_constants/margin_left = 30
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 335.0
+offset_bottom = 80.0
+grow_horizontal = 1
+grow_vertical = 1
+theme_override_constants/margin_left = 0

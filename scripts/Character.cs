@@ -6,6 +6,7 @@ public partial class Character<T> : CharacterBody2D where T : CharacterData
 	public T Data { get; set; }
 	
 	public Vector2 _direction;
+	public bool CanMove { get; set; } = true;
 	
 	[Export] public AnimationTree _animationTree;
 	[Export] public Sprite2D _sprite;
@@ -14,7 +15,7 @@ public partial class Character<T> : CharacterBody2D where T : CharacterData
 	
 	private void Animate() {
 		try {
-			if (_direction != Vector2.Zero) {
+			if (CanMove && _direction != Vector2.Zero) {
 				_moveStateMachine.Travel("Walk");
 				Vector2 animation_direction = new Vector2(Mathf.Round(_direction.X), Mathf.Round(_direction.Y));
 				_animationTree.Set("parameters/MoveStateMachine/Walk/blend_position", animation_direction);
@@ -51,8 +52,10 @@ public partial class Character<T> : CharacterBody2D where T : CharacterData
 
 	public override void _PhysicsProcess(double delta)
 	{
-		UpdateDirection();
-		Move(_direction);
+		if (CanMove) {
+			UpdateDirection();
+			Move(_direction);
+		}
 		Animate();
 	}
 }

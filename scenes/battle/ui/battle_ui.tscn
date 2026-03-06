@@ -11,10 +11,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -320.0
-offset_top = -180.0
-offset_right = -960.0
-offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2a1ha")
@@ -54,27 +50,44 @@ theme_override_constants/separation = 10
 
 [node name="Top" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=748073223]
 layout_mode = 2
-theme_override_constants/margin_top = 10
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Top" unique_id=628060067]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/separation = 20
 
 [node name="PlayerMonsterStatus" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=333265610 instance=ExtResource("2_wvifm")]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Sep" type="Control" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=1347008647]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="LogoTop" type="MarginContainer" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=193521056]
-custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Top/HBoxContainer/LogoTop" unique_id=652539969]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 8
 texture = ExtResource("2_p4gof")
-expand_mode = 5
+
+[node name="Sep2" type="Control" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=1793275531]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="EnemyMonsterStatus" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=245378407 instance=ExtResource("4_lgetq")]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="Middle" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1626347849]
 layout_mode = 2

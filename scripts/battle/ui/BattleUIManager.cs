@@ -10,8 +10,7 @@ public partial class BattleUIManager : Control
 	
 	[Signal] public delegate void ActionForwardedEventHandler(ActionType action);
 	
-	public void SetTheme(BattleTheme theme)
-	{
+	public void SetTheme(BattleTheme theme) {
 		try {
 			_background.Texture = theme.BackgroundTexture;
 		}
@@ -35,13 +34,11 @@ public partial class BattleUIManager : Control
 	}
 		
 	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
+	public override void _Ready() {
 		_actionMenu.ActionSelected += (action) => EmitSignal(SignalName.ActionForwarded, Variant.From(action));
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+	public override void _Process(double delta) {
 	}
 }
