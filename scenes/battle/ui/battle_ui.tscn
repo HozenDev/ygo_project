@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://jp45jop703la" path="res://assets/battle/ui/battle_combat_logo_duel.png" id="2_p4gof"]
 [ext_resource type="PackedScene" uid="uid://bnfi2ybrw5uts" path="res://scenes/battle/ui/player_HUD.tscn" id="2_wvifm"]
 [ext_resource type="PackedScene" uid="uid://cvl3bsbmcsjhx" path="res://scenes/battle/ui/enemy_HUD.tscn" id="4_lgetq"]
+[ext_resource type="PackedScene" uid="uid://ccrqolrj4mana" path="res://scenes/battle/ui/battle_side_scene.tscn" id="5_hlc4b"]
 [ext_resource type="PackedScene" uid="uid://jqh15ys4h8k2" path="res://scenes/battle/ui/UIActionMenu.tscn" id="5_lgetq"]
+[ext_resource type="PackedScene" uid="uid://cwconximjwts7" path="res://scenes/battle/ui/battle_enemy_side_scene.tscn" id="6_s5s13"]
 
-[node name="BattleUI" type="Control" unique_id=1375867816 node_paths=PackedStringArray("_playerHUD", "_enemyHUD", "_actionMenu", "_background")]
+[node name="BattleUI" type="Control" unique_id=1375867816 node_paths=PackedStringArray("_playerHUD", "_enemyHUD", "_playerSideScene", "_enemySideScene", "_actionMenu", "_background")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +18,8 @@ grow_vertical = 2
 script = ExtResource("1_2a1ha")
 _playerHUD = NodePath("MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus")
 _enemyHUD = NodePath("MarginContainer/VBoxContainer/Top/HBoxContainer/EnemyMonsterStatus")
+_playerSideScene = NodePath("MarginContainer/VBoxContainer/Middle/HBoxContainer/PlayerScene")
+_enemySideScene = NodePath("MarginContainer/VBoxContainer/Middle/HBoxContainer/EnemyScene")
 _actionMenu = NodePath("MarginContainer/VBoxContainer/ActionMenu")
 _background = NodePath("TextureRect")
 
@@ -63,7 +67,6 @@ theme_override_constants/separation = 20
 [node name="PlayerMonsterStatus" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=333265610 instance=ExtResource("2_wvifm")]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-size_flags_vertical = 0
 
 [node name="Sep" type="Control" parent="MarginContainer/VBoxContainer/Top/HBoxContainer" unique_id=1347008647]
 layout_mode = 2
@@ -87,15 +90,20 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 0
 
 [node name="Middle" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1626347849]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/Middle" unique_id=1250901172]
-visible = false
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Middle" unique_id=1290033779]
+layout_mode = 2
+
+[node name="PlayerScene" parent="MarginContainer/VBoxContainer/Middle/HBoxContainer" unique_id=448193736 instance=ExtResource("5_hlc4b")]
+layout_mode = 2
+
+[node name="EnemyScene" parent="MarginContainer/VBoxContainer/Middle/HBoxContainer" unique_id=564098180 instance=ExtResource("6_s5s13")]
 layout_mode = 2
 
 [node name="ActionMenu" parent="MarginContainer/VBoxContainer" unique_id=331500470 instance=ExtResource("5_lgetq")]
 layout_mode = 2
+theme_override_constants/margin_top = 20

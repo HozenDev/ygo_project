@@ -28,5 +28,7 @@ texture = ExtResource("3_m2d54")
 zoom = Vector2(2, 2)
 
 [node name="BattlePlayerSide" parent="." unique_id=1596956063 instance=ExtResource("3_a2e2y")]
+visible = false
 
 [node name="BattleEnemySide" parent="." unique_id=2024876882 instance=ExtResource("3_a2e2y")]
+visible = false

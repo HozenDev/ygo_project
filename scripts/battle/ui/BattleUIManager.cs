@@ -5,6 +5,8 @@ public partial class BattleUIManager : Control
 {
 	[Export] public MonsterHUD _playerHUD;
 	[Export] public MonsterHUD _enemyHUD;
+	[Export] public SideScene _playerSideScene;
+	[Export] public SideScene _enemySideScene;
 	[Export] public UIActionMenu _actionMenu;
 	[Export] public TextureRect _background;
 	
@@ -21,10 +23,12 @@ public partial class BattleUIManager : Control
 	
 	private void UpdatePlayerUI(IDuellist duellist) {
 		_playerHUD.UpdateUI(duellist.GetActiveMonster());
+		_playerSideScene.UpdateUI(duellist);
 	}
 	
 	private void UpdateEnemyUI(IDuellist duellist) {
 		_enemyHUD.UpdateUI(duellist.GetActiveMonster());
+		_enemySideScene.UpdateUI(duellist);
 	}
 	
 	public void UpdateUI(IDuellist player, IDuellist enemy, BattleTheme theme) {
