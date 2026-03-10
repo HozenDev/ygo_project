@@ -1,29 +1,11 @@
 [gd_scene format=3 uid="uid://cwconximjwts7"]
 
 [ext_resource type="PackedScene" uid="uid://ccrqolrj4mana" path="res://scenes/battle/ui/battle_side_scene.tscn" id="1_4pvgy"]
-[ext_resource type="Texture2D" uid="uid://defav5dotyiex" path="res://assets/battle/monsters/blue_eyes_dragon.png" id="2_3j73o"]
-[ext_resource type="Texture2D" uid="uid://bjeei2r6nnld0" path="res://assets/battle/ui/ygo_battle_card.png" id="2_jn7yl"]
-[ext_resource type="Texture2D" uid="uid://xd3j1oe7of5n" path="res://assets/battle/ui/ygo_battle_card_empty.png" id="3_i0e3n"]
 
 [node name="PlayerSide" unique_id=448193736 instance=ExtResource("1_4pvgy")]
 
-[node name="HBoxContainer" parent="." index="0" unique_id=802850483]
+[node name="SceneContainer" parent="." index="1" unique_id=802850483]
 layout_direction = 3
 
-[node name="DuellistSprite" parent="HBoxContainer/Duellist/VBoxContainer/Sprite/SpriteWrapper" parent_id_path=PackedInt32Array(2146231678) index="0" unique_id=1707672855]
-flip_h = true
-
-[node name="CardSprite1" parent="HBoxContainer/Cards/VBoxContainer/CardsContainer/VBoxContainer/CardContainer1/HBoxContainer/CardSpriteContainer" parent_id_path=PackedInt32Array(1011236044) index="0" unique_id=1598446577]
-texture = ExtResource("2_jn7yl")
-flip_h = true
-
-[node name="CardSprite2" parent="HBoxContainer/Cards/VBoxContainer/CardsContainer/VBoxContainer/CardContainer2/HBoxContainer/CardSpriteContainer" parent_id_path=PackedInt32Array(95668505) index="0" unique_id=612499752]
-texture = ExtResource("3_i0e3n")
-flip_h = true
-
-[node name="Sprite" parent="HBoxContainer/Monster/VBoxContainer" parent_id_path=PackedInt32Array(1971441156) index="0" unique_id=1873239131]
-theme_override_constants/margin_right = 20
-
-[node name="MonsterSprite" parent="HBoxContainer/Monster/VBoxContainer/Sprite/SpriteWrapper" parent_id_path=PackedInt32Array(2111632371) index="0" unique_id=520665948]
-texture = ExtResource("2_3j73o")
+[node name="DuellistSprite" parent="SceneContainer/Duellist/VBoxContainer/Sprite/SpriteWrapper" parent_id_path=PackedInt32Array(2146231678) index="0" unique_id=1707672855]
 flip_h = true

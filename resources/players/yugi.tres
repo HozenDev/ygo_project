@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://brhg3lrrjruhm" path="res://assets/sprites/duellists/yugi_muto.png" id="1_d37xb"]
 [ext_resource type="Texture2D" uid="uid://drldsawxj04ea" path="res://assets/battle/duellists/yugi.png" id="1_gm6m2"]
-[ext_resource type="Script" uid="uid://t3nkn3j1a5r6" path="res://scripts/Monster.cs" id="2_kfo6x"]
+[ext_resource type="Script" uid="uid://cub3l6lp08gqg" path="res://scripts/models/SpecialCardData.cs" id="2_btob2"]
 [ext_resource type="Script" uid="uid://b8v4gttmftpli" path="res://scripts/models/PlayerData.cs" id="2_sm87l"]
-[ext_resource type="Resource" uid="uid://bjlr7eyfqbb8f" path="res://resources/players/monsters/0.tres" id="3_kfo6x"]
+[ext_resource type="Resource" uid="uid://bgo78x7ncova5" path="res://resources/special_cards/dark_hole.tres" id="3_n3rc2"]
 
 [resource]
 script = ExtResource("2_sm87l")
-Party = Array[ExtResource("2_kfo6x")]([ExtResource("3_kfo6x")])
 BattleSprite = ExtResource("1_gm6m2")
+Deck = Array[ExtResource("2_btob2")]([ExtResource("3_n3rc2"), ExtResource("3_n3rc2"), ExtResource("3_n3rc2"), ExtResource("3_n3rc2"), ExtResource("3_n3rc2")])
 Name = "Yugi"
 Speed = 60.0
 Sprite = ExtResource("1_d37xb")

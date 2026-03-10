@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bvcjerfb0hlfr"]
+
+[ext_resource type="Script" uid="uid://8ebk31at2gel" path="res://scripts/cards/SpecialCard.cs" id="1_6ax4e"]
+[ext_resource type="Texture2D" uid="uid://daj40h5rob38k" path="res://assets/sprites/cards/gbc_cards.png" id="2_bofpv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bofpv"]
+size = Vector2(64, 80)
+
+[node name="SpecialCard" type="Area2D" unique_id=1949137948 node_paths=PackedStringArray("_sprite", "_collision")]
+script = ExtResource("1_6ax4e")
+_sprite = NodePath("Sprite")
+_collision = NodePath("CollisionShape2D")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1285354962]
+position = Vector2(0, -40)
+texture = ExtResource("2_bofpv")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415073249]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_bofpv")
+
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

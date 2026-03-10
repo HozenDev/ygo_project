@@ -1,13 +1,14 @@
 using Godot;
 using System.Collections.Generic;
 
-public enum ThemeType { CITY, FOREST, DUNGEON, BOSS }
+public enum ThemeType { NONE, CITY, FOREST, DUNGEON, BOSS }
 
 public static class ThemeRegistry
 {
 	// Le dictionnaire qui lie l'Enum au chemin du fichier Resource
 	private static readonly Dictionary<ThemeType, string> _paths = new()
 	{
+		{ ThemeType.NONE, "res://resources/battle_themes/default.tres" },
 		{ ThemeType.CITY, "res://resources/battle_themes/city.tres" }
 	};
 

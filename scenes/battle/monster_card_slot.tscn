@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b7b0yuia17s0q"]
+
+[ext_resource type="Script" uid="uid://sp3sie25keew" path="res://scripts/battle/MonsterCardSlot.cs" id="1_pjke7"]
+
+[node name="MonsterCardSlot" type="Area2D" unique_id=431062671 node_paths=PackedStringArray("_sprite", "_collision")]
+script = ExtResource("1_pjke7")
+_sprite = NodePath("Sprite2D")
+_collision = NodePath("CollisionPolygon2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=725529158]
+scale = Vector2(2, 2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=451943187]
+polygon = PackedVector2Array(2, -2, 2, 2, -2, 2, -2, -2)
+
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

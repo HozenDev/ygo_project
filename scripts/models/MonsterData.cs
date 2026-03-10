@@ -1,14 +1,52 @@
 using Godot;
 using System;
 
+public enum MonsterAttribute {
+	Dark,
+	Divine,
+	Earth,
+	Fire,
+	Light,
+	Water,
+	Wind
+}
+
+public enum MonsterType {
+	Aqua,
+	Beast,
+	BeastWarrior,
+	CreatorGod,
+	Cyberse,
+	Dinosaur,
+	DivineBeast,
+	Dragon,
+	Fairy,
+	Fiend,
+	Fish,
+	Insect,
+	Illusion,
+	Machine,
+	Plant,
+	Psychic,
+	Pyro,
+	Reptile,
+	Rock,
+	SeaSerpent,
+	Spellcaster,
+	Thunder,
+	Warrior,
+	WingedBeast,
+	Wyrm,
+	Zombie
+}
+
 [GlobalClass]
-public partial class MonsterData : Resource
+public partial class MonsterData : CardData
 {
 	// Information
-	[Export] public int Id { get; set; }
-	[Export] public string Name { get; set; }
 	[Export] public Texture2D BattleSprite { get; set; }
-	[Export] public Vector2 CardCoordinates { get; set; } // Coordinates in the card tileset
+	[Export] public MonsterAttribute Attribute { get; set; }
+	[Export] public MonsterType Type { get; set; }
 	
 	// Base Stats
 	[Export] public int AttackBase { get; set; }

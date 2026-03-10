@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneLoader="*uid://dbfinre0hp64w"
 DialogueManager="*uid://cmivj25axi7kr"
+UiInfoPanel="*uid://cm3kpfv74dyv2"
 
 [display]
 

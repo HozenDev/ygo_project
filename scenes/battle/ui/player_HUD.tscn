@@ -3,11 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ccqgwgg3ytck" path="res://scenes/battle/ui/monster_HUD.tscn" id="1_738x1"]
 
 [node name="PlayerMonsterStatus" unique_id=333265610 instance=ExtResource("1_738x1")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_right = 335.0
-offset_bottom = 80.0
-grow_horizontal = 1
-grow_vertical = 1
 theme_override_constants/margin_left = 0
+
+[node name="CardTexture" parent="MonsterStatusLayout/CardContainer" parent_id_path=PackedInt32Array(1515780602) index="0" unique_id=352342459]
+region_rect = Rect2(596, 1150, 64, 80)

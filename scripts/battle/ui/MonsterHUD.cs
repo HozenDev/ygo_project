@@ -9,7 +9,7 @@ public partial class MonsterHUD : MarginContainer
 	[Export] private Label _hpText;
 	[Export] private NinePatchRect _cardTexture;
 	
-	public void UpdateUI(Monster monster)
+	public void UpdateUI(MonsterCard monster)
 	{
 		_nameLabel.Text = monster.Nickname;
 		_levelLabel.Text = $"Lv. {monster.Level}";
@@ -24,7 +24,7 @@ public partial class MonsterHUD : MarginContainer
 		UpdateBarColor(monster.CurrentLife, monster.MaxLife);
 		
 		// card update
-		UpdateCardTexture(monster.Data.CardCoordinates);
+		UpdateCardTexture(monster.GetData().CardCoordinates);
 	}
 
 	private void UpdateBarColor(int current, int max)

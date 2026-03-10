@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpecialCardData" format=3 uid="uid://bgo78x7ncova5"]
+
+[ext_resource type="Script" uid="uid://cub3l6lp08gqg" path="res://scripts/models/SpecialCardData.cs" id="1_mbwk8"]
+
+[resource]
+script = ExtResource("1_mbwk8")
+Cost = 2
+Name = "Dark Hole"
+Description = "Destroy all monsters on the field."
+CardCoordinates = Vector2(596, 1150)
+metadata/_custom_type_script = "uid://cub3l6lp08gqg"

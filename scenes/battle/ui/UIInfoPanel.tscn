@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cm3kpfv74dyv2"]
+
+[ext_resource type="Texture2D" uid="uid://daj40h5rob38k" path="res://assets/sprites/cards/gbc_cards.png" id="1_h57wk"]
+[ext_resource type="Script" uid="uid://dr8a33w2l7ry5" path="res://scripts/battle/ui/UICardInfo.cs" id="1_hp7ma"]
+[ext_resource type="FontFile" uid="uid://dxwx8wwcye0o4" path="res://assets/fonts/PixelOperator8.ttf" id="3_o16hw"]
+
+[node name="InfoContainer" type="MarginContainer" unique_id=179839569 node_paths=PackedStringArray("_cardSprite", "_cardName", "_cardDesc")]
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_hp7ma")
+_cardSprite = NodePath("MarginContainer/HBoxContainer/CardContainer/CardTexture")
+_cardName = NodePath("MarginContainer/HBoxContainer/CardInfoContainer/VBoxContainer/Name")
+_cardDesc = NodePath("MarginContainer/HBoxContainer/CardInfoContainer/VBoxContainer/Description")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2145710070]
+layout_mode = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1318793641]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1254556131]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CardContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1344225800]
+layout_mode = 2
+
+[node name="CardTexture" type="NinePatchRect" parent="MarginContainer/HBoxContainer/CardContainer" unique_id=1166945122]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_h57wk")
+region_rect = Rect2(200, 822, 64, 80)
+
+[node name="CardInfoContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=375704006]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/CardInfoContainer" unique_id=1982564113]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/CardInfoContainer/VBoxContainer" unique_id=978547233]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o16hw")
+text = "Celtic Warrior"
+
+[node name="Description" type="Label" parent="MarginContainer/HBoxContainer/CardInfoContainer/VBoxContainer" unique_id=1869090050]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o16hw")
+theme_override_font_sizes/font_size = 8
+text = "The celtic warrior is a warrior that is very good to I don't know.
+"
+autowrap_mode = 2

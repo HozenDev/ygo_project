@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ccrqolrj4mana" path="res://scenes/battle/ui/battle_side_scene.tscn" id="5_hlc4b"]
 [ext_resource type="PackedScene" uid="uid://jqh15ys4h8k2" path="res://scenes/battle/ui/UIActionMenu.tscn" id="5_lgetq"]
 [ext_resource type="PackedScene" uid="uid://cwconximjwts7" path="res://scenes/battle/ui/battle_enemy_side_scene.tscn" id="6_s5s13"]
+[ext_resource type="PackedScene" uid="uid://cm3kpfv74dyv2" path="res://scenes/battle/ui/UIInfoPanel.tscn" id="7_xs44j"]
+[ext_resource type="PackedScene" uid="uid://cw1fu57pbeerj" path="res://scenes/battle/ui/hand.tscn" id="8_qs82h"]
 
 [node name="BattleUI" type="Control" unique_id=1375867816 node_paths=PackedStringArray("_playerHUD", "_enemyHUD", "_playerSideScene", "_enemySideScene", "_actionMenu", "_background")]
 layout_mode = 3
@@ -15,12 +17,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_2a1ha")
 _playerHUD = NodePath("MarginContainer/VBoxContainer/Top/HBoxContainer/PlayerMonsterStatus")
 _enemyHUD = NodePath("MarginContainer/VBoxContainer/Top/HBoxContainer/EnemyMonsterStatus")
-_playerSideScene = NodePath("MarginContainer/VBoxContainer/Middle/HBoxContainer/PlayerScene")
-_enemySideScene = NodePath("MarginContainer/VBoxContainer/Middle/HBoxContainer/EnemyScene")
-_actionMenu = NodePath("MarginContainer/VBoxContainer/ActionMenu")
+_playerSideScene = NodePath("MarginContainer/VBoxContainer/Middle/BattleScene/PlayerScene")
+_enemySideScene = NodePath("MarginContainer/VBoxContainer/Middle/BattleScene/EnemyScene")
+_actionMenu = NodePath("MarginContainer/VBoxContainer/Bottom/HBoxContainer/ActionMenu")
 _background = NodePath("TextureRect")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=993701234]
@@ -95,15 +98,40 @@ size_flags_horizontal = 8
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Middle" unique_id=1290033779]
+[node name="BattleScene" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Middle" unique_id=1290033779]
 layout_mode = 2
 
-[node name="PlayerScene" parent="MarginContainer/VBoxContainer/Middle/HBoxContainer" unique_id=448193736 instance=ExtResource("5_hlc4b")]
+[node name="PlayerScene" parent="MarginContainer/VBoxContainer/Middle/BattleScene" unique_id=448193736 node_paths=PackedStringArray("_hand") instance=ExtResource("5_hlc4b")]
+layout_mode = 2
+_hand = NodePath("../../../Bottom/HBoxContainer/HandPlayer")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Middle/BattleScene" unique_id=407396931]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemyScene" parent="MarginContainer/VBoxContainer/Middle/BattleScene" unique_id=564098180 node_paths=PackedStringArray("_hand") instance=ExtResource("6_s5s13")]
+layout_mode = 2
+_hand = NodePath("../../../Bottom/HBoxContainer/HandOpponent")
+
+[node name="InfoContainer" parent="MarginContainer/VBoxContainer/Middle" unique_id=179839569 instance=ExtResource("7_xs44j")]
 layout_mode = 2
 
-[node name="EnemyScene" parent="MarginContainer/VBoxContainer/Middle/HBoxContainer" unique_id=564098180 instance=ExtResource("6_s5s13")]
+[node name="Bottom" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=2002437333]
 layout_mode = 2
 
-[node name="ActionMenu" parent="MarginContainer/VBoxContainer" unique_id=331500470 instance=ExtResource("5_lgetq")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Bottom" unique_id=1848323076]
 layout_mode = 2
+
+[node name="HandPlayer" parent="MarginContainer/VBoxContainer/Bottom/HBoxContainer" unique_id=615160839 instance=ExtResource("8_qs82h")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="ActionMenu" parent="MarginContainer/VBoxContainer/Bottom/HBoxContainer" unique_id=331500470 instance=ExtResource("5_lgetq")]
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_constants/margin_top = 20
+
+[node name="HandOpponent" parent="MarginContainer/VBoxContainer/Bottom/HBoxContainer" unique_id=1996377562 instance=ExtResource("8_qs82h")]
+layout_mode = 2
+size_flags_horizontal = 6

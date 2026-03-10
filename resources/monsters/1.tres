@@ -5,12 +5,13 @@
 
 [resource]
 script = ExtResource("2_jsysr")
-Id = 1
-Name = "Celtic Warrior"
 BattleSprite = ExtResource("1_38qln")
-CardCoordinates = Vector2(200, 822)
 AttackBase = 8
 DefenseBase = 5
 LifeBase = 10
 SpeedBase = 5
+Id = 1
+Name = "Celtic Guardian"
+Description = "An elf who learned to wield a sword, he baffles enemies with lightning-swift attacks."
+CardCoordinates = Vector2(200, 822)
 metadata/_custom_type_script = "uid://d02wyjgldrp7o"

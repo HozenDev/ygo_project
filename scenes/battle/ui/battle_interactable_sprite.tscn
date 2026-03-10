@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bwkbkpe8a11xb"]
+
+[ext_resource type="Texture2D" uid="uid://xd3j1oe7of5n" path="res://assets/battle/ui/ygo_battle_card_empty.png" id="1_d6o3m"]
+[ext_resource type="Script" uid="uid://8ebk31at2gel" path="res://scripts/cards/SpecialCard.cs" id="2_bw75u"]
+
+[node name="BattleInteractableSprite" type="Sprite2D" unique_id=750725697 node_paths=PackedStringArray("_interactArea")]
+scale = Vector2(2, 2)
+texture = ExtResource("1_d6o3m")
+script = ExtResource("2_bw75u")
+_interactArea = NodePath("InteractableZone")
+
+[node name="InteractableZone" type="Area2D" parent="." unique_id=129438159]
+
+[node name="SpriteCollision" type="CollisionPolygon2D" parent="InteractableZone" unique_id=1848239488]
+polygon = PackedVector2Array(-3.5, -3, 3.5, -3, 3.5, 3, -3.5, 3)
+
+[connection signal="mouse_entered" from="InteractableZone" to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="InteractableZone" to="." method="OnMouseExited"]

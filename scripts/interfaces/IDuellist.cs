@@ -12,13 +12,16 @@ public interface IDuellist
 		return GetDuelData().Party.Any(m => m.CurrentLife > 0);
 	}
 	
-	public Monster GetFirstValidMonster() {
+	public MonsterCard GetFirstValidMonster() {
 		// Todo: manage the first valid monster
 		return GetDuelData().Party[0];
 	}
 	
-	public Monster GetActiveMonster() {
+	public MonsterCard GetActiveMonster() {
 		// Todo: manage active monsters
 		return GetDuelData().Party[0];
 	}
+	
+	// Todo: handle hands special cards.
+	// Todo: link between duellist and field.
 }

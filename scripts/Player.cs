@@ -26,11 +26,11 @@ public partial class Player : Character<PlayerData>, IDuellist
 	
 	public void StartDuel(IDuellist opponent)
 	{
-		SceneLoader.Instance.LoadScene(SceneLoader._combatScene, (node) => 
+		SceneLoader.Instance.LoadScene(SceneLoader._battleScene, (node) => 
 		{
-			if (node is CombatManager combatInstance)
+			if (node is BattleManager battleInstance)
 			{
-				combatInstance.Initialize(this, opponent, ThemeType.CITY);
+				battleInstance.Initialize(this, opponent, ThemeType.NONE);
 			}
 		});
 	}

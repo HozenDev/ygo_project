@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cw1fu57pbeerj"]
+
+[ext_resource type="Script" uid="uid://btehgwafmncf7" path="res://scripts/battle/ui/Hand.cs" id="1_bpsms"]
+[ext_resource type="Curve" uid="uid://d37txtuv641p4" path="res://resources/utils/hand_curve.tres" id="2_vscw2"]
+[ext_resource type="Curve" uid="uid://b45lpwv0usea0" path="res://resources/utils/card_rotation_curve.tres" id="3_8n8r8"]
+
+[node name="HandPlayer" type="MarginContainer" unique_id=615160839]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 200.0
+size_flags_horizontal = 4
+script = ExtResource("1_bpsms")
+_handCurve = ExtResource("2_vscw2")
+_cardRotations = ExtResource("3_8n8r8")
+_maxRotationDegree = 10.0
+_cardSep = -10.0
+_yCardMin = 100.0
+_yCardMax = -10.0

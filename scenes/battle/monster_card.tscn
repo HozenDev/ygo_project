@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c1qrdkfq4jgoj"]
+
+[ext_resource type="Script" uid="uid://lqf3mppfuss2" path="res://scripts/cards/MonsterCard.cs" id="1_cwk8p"]
+
+[node name="MonsterCard" type="Area2D" unique_id=1949137948 node_paths=PackedStringArray("_sprite", "_collision")]
+script = ExtResource("1_cwk8p")
+_sprite = NodePath("Sprite")
+_collision = NodePath("CollisionShape2D")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1285354962]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859708160]
+
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]
