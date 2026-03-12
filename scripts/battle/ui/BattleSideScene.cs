@@ -23,6 +23,8 @@ public partial class BattleSideScene : MarginContainer
 	// --- Special Cards
 	[Export] public VBoxContainer _specialCardSlotsContainer;
 	public const int MAX_NB_SPECIAL_CARDS = 2;
+	
+	private PackedScene CardScene = GD.Load<PackedScene>("uid://bvcjerfb0hlfr") as PackedScene;
 	public PackedScene SpecialCardSlotScene = GD.Load<PackedScene>("uid://0ubfetw3ig3g") as PackedScene;
 	private Godot.Collections.Array<SpecialCardSlot> _specialCardSlots = new();
 	
@@ -53,10 +55,13 @@ public partial class BattleSideScene : MarginContainer
 		{
 			// Draw the card (only data)
 			SpecialCardData drawnCardData = _drawPile[0];
+			SpecialCard card = CardScene.Instantiate<SpecialCard>();
+			card.SetData(drawnCardData);
+			card.SetVisibility(_side != BattleSideSceneType.Opponent);
 			_drawPile.RemoveAt(0);
 			
 			// Instanciate the card
-			_hand.Add(drawnCardData);
+			_hand.Add(card);
 			
 			// Signal
 			// EmitSignal(SignalName.CardDrawn, drawnCardData);
@@ -120,7 +125,6 @@ public partial class BattleSideScene : MarginContainer
 		for (int i = 0; i < MAX_NB_SPECIAL_CARDS; i++) {
 			SpecialCardSlot slot = SpecialCardSlotScene.Instantiate<SpecialCardSlot>();
 			_specialCardSlots.Add(slot);
-			
 			_specialCardSlotsContainer.AddChild(slot);
 
 			if (side == BattleSideSceneType.Opponent) {

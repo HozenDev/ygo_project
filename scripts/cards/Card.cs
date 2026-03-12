@@ -4,6 +4,7 @@ using System;
 public partial class Card<T> : Area2D where T: CardData
 {
 	// Collision Handle
+	[Export] private Texture2D _cardHiddenTexture;
 	[Export] private Sprite2D _sprite;
 	[Export] private CollisionShape2D _collision;
 	
@@ -12,7 +13,19 @@ public partial class Card<T> : Area2D where T: CardData
 	// Card State
 	private bool _isHidden = false;
 	public bool IsHidden() => _isHidden;
-	public void SetVisibility(bool isVisible) => _isHidden = !isVisible;
+	
+	public void SetVisibility(bool isVisible) {
+		_isHidden = !isVisible;
+		if (_isHidden) {
+			_sprite.RegionEnabled = false;
+			_sprite.Texture = _cardHiddenTexture;
+		}
+		else {
+			_sprite.RegionEnabled = true;
+			UpdateTexture();
+		}
+	} 
+	
 	public CollisionShape2D GetCollision() => _collision;
 	
 	public override void _Ready()

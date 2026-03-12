@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://8ebk31at2gel" path="res://scripts/cards/SpecialCard.cs" id="1_6ax4e"]
 [ext_resource type="Texture2D" uid="uid://daj40h5rob38k" path="res://assets/sprites/cards/gbc_cards.png" id="2_bofpv"]
+[ext_resource type="Texture2D" uid="uid://c5ig8k2cxqynh" path="res://assets/battle/ui/card_back.png" id="2_y63xe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bofpv"]
 size = Vector2(64, 80)
 
 [node name="SpecialCard" type="Area2D" unique_id=1949137948 node_paths=PackedStringArray("_sprite", "_collision")]
 script = ExtResource("1_6ax4e")
+_cardHiddenTexture = ExtResource("2_y63xe")
 _sprite = NodePath("Sprite")
 _collision = NodePath("CollisionShape2D")
 

@@ -17,7 +17,7 @@ public partial class SpecialCard : Card<SpecialCardData>
 	// Handle card hover in hand
 	private Tween _tween;
 	private Vector2 _originalPosition;
-	private const float HOVER_OFFSET = 10f; // Hauteur de levée
+	private const float HOVER_OFFSET = 0.0f; // Hauteur de levée
 	private const float HOVER_SCALE = 1.2f;  // Augmentation de taille
 	[Signal] public delegate void HoveredEventHandler(SpecialCard card);
 	[Signal] public delegate void UnhoveredEventHandler(SpecialCard card);
@@ -42,6 +42,8 @@ public partial class SpecialCard : Card<SpecialCardData>
 	public void Set() {
 		_state = SpecialCardState.Setted;
 	}
+	
+	public bool IsSetted() => _state == SpecialCardState.Setted;
 	
 	// ------------ Informations -------------- //
 	
@@ -77,5 +79,40 @@ public partial class SpecialCard : Card<SpecialCardData>
 	public override void OnMouseExited()
 	{
 		EmitSignal(SignalName.Unhovered, this);
+	}
+	
+	// ----------- Dragging ----------- //
+	
+	public bool _isDragging = false;
+	public Vector2 _dragOffset;
+	private Vector2 _homePosition; // Position dans la main
+
+	public void StartDragging()
+	{
+		_isDragging = true;
+		_dragOffset = GetGlobalMousePosition() - GlobalPosition;
+		_homePosition = Position; // Sauvegarde pour retour si échec
+	}
+
+	public void StopDragging()
+	{
+		_isDragging = false;
+		
+		// On cherche un slot valide sous la souris
+		var areas = GetOverlappingAreas();
+		foreach (var area in areas)
+		{
+			if (area is SpecialCardSlot slot && !slot.IsOccupied)
+			{
+				slot.SetCard(this);
+				return;
+			}
+		}
+
+		// Si aucun slot : retour à la main avec un Tween
+		var tween = CreateTween();
+		tween.TweenProperty(this, "position", _homePosition, 0.2f);
+	
+		throw new Exception("There is no emplacement here");
 	}
 }

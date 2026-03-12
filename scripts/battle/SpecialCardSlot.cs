@@ -12,6 +12,7 @@ public partial class SpecialCardSlot : CardSlot<SpecialCard, SpecialCardData>
 	{
 		base._Ready();
 		RefreshVisual();
+		UpdateCollision();
 	}
 	
 	public void Init(int index) {
@@ -30,6 +31,8 @@ public partial class SpecialCardSlot : CardSlot<SpecialCard, SpecialCardData>
 	{
 		base.SetCard(card);
 		card.Set();
+		var tween = card.CreateTween();
+		tween.TweenProperty(card, "global_position", GlobalPosition, 0.1f);
 		RefreshVisual();
 	}
 

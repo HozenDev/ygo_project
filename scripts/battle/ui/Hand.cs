@@ -13,7 +13,9 @@ public partial class Hand : MarginContainer
 	[Export] private float _yCardMin;
 	[Export] private float _yCardMax;
 	
-	private PackedScene CardScene = GD.Load<PackedScene>("uid://bvcjerfb0hlfr") as PackedScene;
+	private SpecialCard _currentCardTop;
+	
+	
 	private System.Collections.Generic.List<SpecialCard> _cards = new();
 	
 	private System.Collections.Generic.SortedList<int, SpecialCard> _overlapping = new();
@@ -29,9 +31,7 @@ public partial class Hand : MarginContainer
 		}
 	}
 	
-	public void Add(SpecialCardData cardData) {
-		SpecialCard card = CardScene.Instantiate<SpecialCard>();
-		card.SetData(cardData);
+	public void Add(SpecialCard card) {
 		
 		// Connect signals
 		card.Hovered += OnCardHovered;
@@ -46,6 +46,7 @@ public partial class Hand : MarginContainer
 	public void Remove(SpecialCard card) {
 		// if (GetChildCount() < 1) return;
 		_cards.Remove(card);
+		UpdateCards();
 	}
 	
 	public void UpdateCards() {
@@ -83,11 +84,13 @@ public partial class Hand : MarginContainer
 	}
 	
 	// ---------- Signals ------------ //
-	
-	private SpecialCard _currentCardTop;
 
 	public void OnCardHovered(SpecialCard card)
 	{
+		if (_currentCardTop != null && _currentCardTop._isDragging) return;
+		
+		if (card.IsHidden()) return;
+		
 		if (!_overlapping.ContainsKey(card.ZIndex))
 		{
 			_overlapping.Add(card.ZIndex, card);
@@ -97,13 +100,18 @@ public partial class Hand : MarginContainer
 
 	public void OnCardUnhovered(SpecialCard card)
 	{
+		// Test if we are not dragging the current top card
+		if (_currentCardTop != null && _currentCardTop._isDragging) return;
+		
+		// Test if the card is hidden (opponent card)
+		if (card.IsHidden()) return;
+		
 		int index = _overlapping.IndexOfValue(card);
 		if (index != -1)
 		{
 			_overlapping.RemoveAt(index);
 			card.Unhover();
 			
-			// Si on quitte la carte qui était au sommet, on l'oublie
 			if (_currentCardTop == card)
 			{
 				_currentCardTop = null;
@@ -115,7 +123,6 @@ public partial class Hand : MarginContainer
 
 	private void UpdateTopCard()
 	{
-		// CAS 1 : Plus aucune carte n'est survolée
 		if (_overlapping.Count == 0)
 		{
 			_currentCardTop = null;
@@ -123,23 +130,50 @@ public partial class Hand : MarginContainer
 			return;
 		}
 
-		// Récupérer la carte avec le plus haut ZIndex (la dernière)
 		SpecialCard newTop = _overlapping.Values[_overlapping.Count - 1];
 
-		// CAS 2 : La carte prioritaire a changé
 		if (newTop != _currentCardTop)
 		{
-			// 1. On remet l'ancienne carte en état normal
 			_currentCardTop?.Unhover();
-			
-			// 2. On change la référence
 			_currentCardTop = newTop;
-			
-			// 3. On active la nouvelle
 			_currentCardTop.Hover();
-
-			// 4. ON FORCE LE RE-SHOW (cela écrase l'ancien contenu du tooltip)
 			UICardInfo.Instance.ShowTooltip(_currentCardTop.GetData());
+		}
+	}
+	
+	// -------------- Dragging -------------- //
+
+	public override void _Input(InputEvent @event)
+	{
+		if (_currentCardTop == null || _currentCardTop.IsSetted()) return;
+		
+		// Grad the card
+		if (@event is InputEventMouseButton mouseEvent && mouseEvent.ButtonIndex == MouseButton.Left)
+		{
+			if (mouseEvent.Pressed && _currentCardTop != null)
+			{
+				_currentCardTop.StartDragging();
+			}
+			else if (!mouseEvent.Pressed && _currentCardTop._isDragging)
+			{
+				try {
+					_currentCardTop.StopDragging();
+					Remove(_currentCardTop);
+				}
+				catch (Exception e) {
+					// Can't drag card into an emplacement
+					GD.PushError(e);
+				}
+				finally {
+					OnCardUnhovered(_currentCardTop);
+				}
+			}
+		}
+
+		// Move the card
+		if (@event is InputEventMouseMotion && _currentCardTop._isDragging)
+		{
+			_currentCardTop.GlobalPosition = GetGlobalMousePosition() - _currentCardTop._dragOffset;
 		}
 	}
 }
