@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dpfv5gbuuxij5" path="res://assets/battle/duellists/kaiba.png" id="1_mha73"]
 [ext_resource type="Script" uid="uid://cub3l6lp08gqg" path="res://scripts/models/SpecialCardData.cs" id="2_pi82m"]
+[ext_resource type="Resource" uid="uid://b8pgj5d457cpa" path="res://resources/special_cards/test0.tres" id="3_hgymk"]
 [ext_resource type="Script" uid="uid://c15i0vwdx1q7x" path="res://scripts/models/DuellistData.cs" id="3_mha73"]
 [ext_resource type="Resource" uid="uid://bgo78x7ncova5" path="res://resources/special_cards/dark_hole.tres" id="3_yqiiu"]
 [ext_resource type="Texture2D" uid="uid://cj1fxp2dwfyfs" path="res://assets/sprites/duellists/kaiba_seto.png" id="4_pua1i"]
@@ -9,7 +10,7 @@
 [resource]
 script = ExtResource("3_mha73")
 BattleSprite = ExtResource("1_mha73")
-Deck = Array[ExtResource("2_pi82m")]([ExtResource("3_yqiiu"), ExtResource("3_yqiiu"), ExtResource("3_yqiiu"), ExtResource("3_yqiiu"), ExtResource("3_yqiiu")])
+Deck = Array[ExtResource("2_pi82m")]([ExtResource("3_hgymk"), ExtResource("3_yqiiu"), ExtResource("3_hgymk"), ExtResource("3_yqiiu"), ExtResource("3_hgymk")])
 Name = "Kaiba"
 Sprite = ExtResource("4_pua1i")
 Dialogue = "Get ready to DUEL!"

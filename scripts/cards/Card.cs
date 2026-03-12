@@ -13,6 +13,7 @@ public partial class Card<T> : Area2D where T: CardData
 	private bool _isHidden = false;
 	public bool IsHidden() => _isHidden;
 	public void SetVisibility(bool isVisible) => _isHidden = !isVisible;
+	public CollisionShape2D GetCollision() => _collision;
 	
 	public override void _Ready()
 	{
@@ -44,19 +45,14 @@ public partial class Card<T> : Area2D where T: CardData
 	
 	public virtual void OnMouseEntered()
 	{
-		if (_data == null) {
-			// GD.PushError("Card Data not set for this sprite");
-			return;
-		}
-		
-		if (!_isHidden) {
+		if (_data != null && !_isHidden) {
 			UICardInfo.Instance.ShowTooltip(_data);
 		}
 	}
 
 	public virtual void OnMouseExited()
 	{
-		if (!_isHidden) {
+		if (_data != null) {
 			UICardInfo.Instance.HideTooltip();
 		}
 	}
