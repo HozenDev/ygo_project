@@ -4,7 +4,7 @@ using System;
 public partial class BattleManager : Node2D
 {	
 	// UI Management
-	[Export] public BattleTheme _theme;			
+	[Export] public BattleTheme _theme;
 	[Export] public BattleUIManager _battleUI;
 
 	// Duellists data
@@ -14,6 +14,7 @@ public partial class BattleManager : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		_battleUI.ActionForwarded += OnActionSelected;
+		// test
 	}
 	
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

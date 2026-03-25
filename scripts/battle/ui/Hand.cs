@@ -30,7 +30,7 @@ public partial class Hand : MarginContainer
 			GD.Print(card.GetData().Name);
 		}
 	}
-	
+
 	public void Add(SpecialCard card) {
 		
 		// Connect signals
@@ -112,11 +112,12 @@ public partial class Hand : MarginContainer
 			_overlapping.RemoveAt(index);
 			card.Unhover();
 			
+			
 			if (_currentCardTop == card)
 			{
 				_currentCardTop = null;
 			}
-
+			
 			UpdateTopCard();
 		}
 	}
@@ -143,37 +144,93 @@ public partial class Hand : MarginContainer
 	
 	// -------------- Dragging -------------- //
 
+	private Vector2 _dragStartPosition;
+	private double _pressStartTime;
+	private bool _isPotentialClick = false;
+	
+	private const float DRAG_THRESHOLD = 15.0f; // pixels before considering it a drag
+	private const double CLICK_TIME_MAX = 0.25; // time threshold for "just" a click
+
 	public override void _Input(InputEvent @event)
 	{
-		if (_currentCardTop == null || _currentCardTop.IsSetted()) return;
-		
-		// Grad the card
-		if (@event is InputEventMouseButton mouseEvent && mouseEvent.ButtonIndex == MouseButton.Left)
-		{
-			if (mouseEvent.Pressed && _currentCardTop != null)
-			{
-				_currentCardTop.StartDragging();
-			}
-			else if (!mouseEvent.Pressed && _currentCardTop._isDragging)
-			{
-				try {
-					_currentCardTop.StopDragging();
-					Remove(_currentCardTop);
-				}
-				catch (Exception e) {
-					// Can't drag card into an emplacement
-					GD.PushError(e);
-				}
-				finally {
-					OnCardUnhovered(_currentCardTop);
-				}
-			}
-		}
+	    if (_currentCardTop == null || _currentCardTop.IsSetted()) return;
 
-		// Move the card
-		if (@event is InputEventMouseMotion && _currentCardTop._isDragging)
+	    // Click and drag management
+	    if (@event is InputEventMouseButton mouseEvent && mouseEvent.ButtonIndex == MouseButton.Left)
+	    {
+		if (mouseEvent.Pressed)
 		{
-			_currentCardTop.GlobalPosition = GetGlobalMousePosition() - _currentCardTop._dragOffset;
+		    _isPotentialClick = true;
+		    _dragStartPosition = GetGlobalMousePosition();
+		    _pressStartTime = Time.GetTicksMsec() / 1000.0;
 		}
+		else // Handle action on released
+		{
+		    if (_currentCardTop._isDragging)
+		    {
+			FinishDragging();
+		    }
+		    else if (_isPotentialClick)
+		    {
+			CheckForQuickClick();
+		    }
+		    _isPotentialClick = false;
+		}
+	    }
+
+	    // Mouse Motion handle
+	    if (@event is InputEventMouseMotion && _currentCardTop != null)
+	    {
+		if (_currentCardTop._isDragging)
+		{
+		    _currentCardTop.GlobalPosition = GetGlobalMousePosition() - _currentCardTop._dragOffset;
+		}
+		else if (_isPotentialClick)
+		{
+		    float distance = GetGlobalMousePosition().DistanceTo(_dragStartPosition);
+		    if (distance > DRAG_THRESHOLD)
+		    {
+			_isPotentialClick = false;
+			_currentCardTop.StartDragging(); // On lance enfin le drag
+		    }
+		}
+	    }
+	}
+
+	private void CheckForQuickClick()
+	{
+	    double duration = (Time.GetTicksMsec() / 1000.0) - _pressStartTime;
+
+	    // check if it was a simple click on the card
+	    if (duration < CLICK_TIME_MAX)
+	    {
+		if (_currentCardTop is IActivable activable)
+		{
+		    if (activable.CanActivate()) {
+			activable.ShowActivationPopup(_currentCardTop);
+		    }
+		    else {
+			activable.HideActivationPopup();
+		    }
+		    
+		}
+	    }
+	}
+
+	private void FinishDragging()
+	{
+	    try 
+	    {
+		_currentCardTop.StopDragging();
+		Remove(_currentCardTop);
+	    }
+	    catch (Exception e) 
+	    {
+		GD.PushError($"Erreur lors du dépôt de la carte: {e.Message}");
+	    }
+	    finally 
+	    {
+		OnCardUnhovered(_currentCardTop);
+	    }
 	}
 }

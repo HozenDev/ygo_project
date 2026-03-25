@@ -6,7 +6,6 @@ public partial class CardSlot<T, D>: Area2D
 	where D: CardData
 {
 	[Export] private Sprite2D _sprite;
-	
 	[Export] private CollisionPolygon2D _collision;
 	private float _collisionPrecision = 2.0f;
 	
@@ -54,10 +53,29 @@ public partial class CardSlot<T, D>: Area2D
 	}
 	
 	// ---------- UI ---------- //	
+
+	public virtual Vector2 GetSize() {
+	    Vector2 size = Vector2.Zero;
+	    if (_sprite != null && _sprite.Texture != null)
+	    {
+		if (_sprite.RegionEnabled == true) {
+		    size = _sprite.RegionRect.Size * _sprite.GlobalScale;
+		}
+		else {
+		    size = _sprite.Texture.GetSize() * _sprite.GlobalScale;
+		}
+		
+	    }
+	    return size;
+	}
 	
 	public bool IsFlipped() => _sprite.FlipH;
 	public void Flip() {
 		_sprite.FlipH = true;
+	}
+
+	public Vector2 GetOffset() {
+	    return _sprite.Offset;
 	}
 	
 	public void UpdateOffset(Vector2 newOffset) {

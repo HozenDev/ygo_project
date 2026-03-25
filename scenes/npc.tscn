@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djjch1yvt2ovc"]
 
-[ext_resource type="Script" uid="uid://bgw2ndn4l2dkb" path="res://scripts/NPC.cs" id="1_nh2m4"]
+[ext_resource type="Script" uid="uid://bgw2ndn4l2dkb" path="res://scripts/actors/NPC.cs" id="1_nh2m4"]
 [ext_resource type="AnimationLibrary" uid="uid://k1ws5tiuplca" path="res://assets/animations/player.res" id="2_abqhh"]
 [ext_resource type="Script" uid="uid://bvqekvgklqyud" path="res://scripts/interfaces/IInteractable.cs" id="2_rv78h"]
 

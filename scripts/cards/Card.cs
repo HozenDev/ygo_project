@@ -24,7 +24,15 @@ public partial class Card<T> : Area2D where T: CardData
 			_sprite.RegionEnabled = true;
 			UpdateTexture();
 		}
-	} 
+	}
+
+	public Vector2 GetCardSize() {
+	    if (_sprite != null && _sprite.Texture != null)
+	    {
+		return _sprite.RegionRect.Size * _sprite.GlobalScale;
+	    }
+	    return Vector2.Zero;
+	}
 	
 	public CollisionShape2D GetCollision() => _collision;
 	
@@ -53,7 +61,7 @@ public partial class Card<T> : Area2D where T: CardData
 	}
 	
 	// ------------ Collision -------------- //
-	
+
 	// ------------ UI Handlers -------------- //
 	
 	public virtual void OnMouseEntered()

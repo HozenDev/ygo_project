@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7b0yuia17s0q"]
 
-[ext_resource type="Script" uid="uid://sp3sie25keew" path="res://scripts/battle/MonsterCardSlot.cs" id="1_pjke7"]
+[ext_resource type="Script" uid="uid://sp3sie25keew" path="res://scripts/battle/slots/MonsterCardSlot.cs" id="1_pjke7"]
 
 [node name="MonsterCardSlot" type="Area2D" unique_id=431062671 node_paths=PackedStringArray("_sprite", "_collision")]
 script = ExtResource("1_pjke7")

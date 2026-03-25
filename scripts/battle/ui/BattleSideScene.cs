@@ -8,13 +8,8 @@ public enum BattleSideSceneType {
 
 public partial class BattleSideScene : MarginContainer
 {
-	// Duesllist
 	[Export] public Sprite2D _duellistSprite;
-	
-	// Monster
 	[Export] public MonsterCardSlot _monsterCardSlot;
-
-	// Hand
 	[Export] public Hand _hand;
 	
 	// --- Info

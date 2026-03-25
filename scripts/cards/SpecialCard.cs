@@ -9,8 +9,8 @@ public enum SpecialCardState {
 	Activated
 }
 
-public partial class SpecialCard : Card<SpecialCardData>
-{	
+public partial class SpecialCard : Card<SpecialCardData>, IActivable
+{
 	// Card State
 	private SpecialCardState _state;
 	
@@ -21,8 +21,32 @@ public partial class SpecialCard : Card<SpecialCardData>
 	private const float HOVER_SCALE = 1.2f;  // Augmentation de taille
 	[Signal] public delegate void HoveredEventHandler(SpecialCard card);
 	[Signal] public delegate void UnhoveredEventHandler(SpecialCard card);
+
+	public override void _Ready() {
+	    base._Ready();
+	    _state = SpecialCardState.InHand;
+	}
 	
-	// ------------ Main Actions -------------- //
+	// ------------ Activation -------------- //
+	
+	[Export] public PackedScene ActionPopupScene { get; set; }
+	public ActionPopup Popup { get; set; }
+
+	public void SetPopupPosition() {
+	    Popup.AlignTop(GetCardSize().Y);
+	}
+	
+	public bool CanActivate() {
+	    bool canActivate = false;
+	    if ((GetData().Type == SpecialType.Magic
+		 && _state == SpecialCardState.InHand)
+		|| _state == SpecialCardState.Setted) {
+
+		canActivate = true;
+	    }
+	    GD.Print(_state);
+	    return canActivate;
+	}
 	
 	public void Activate() {
 		if (GetData() == null) return; // No card to be activated
@@ -33,6 +57,8 @@ public partial class SpecialCard : Card<SpecialCardData>
 		// Always make the card visible for info
 		SetVisibility(true);
 	}
+
+	// ------------ Main Actions -------------- //
 	
 	public override void Destroy() {
 		_state = SpecialCardState.None;

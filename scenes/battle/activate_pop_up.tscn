@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dddgxp6ae0p5l"]
+
+[ext_resource type="Script" uid="uid://btvnkrtowmue2" path="res://scripts/cards/ActionPopup.cs" id="1_afui3"]
+[ext_resource type="FontFile" uid="uid://dxwx8wwcye0o4" path="res://assets/fonts/PixelOperator8.ttf" id="2_8ib6b"]
+
+[node name="ActivatePopUp" type="MarginContainer" unique_id=835679939]
+z_index = 1000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_afui3")
+
+[node name="BtnActivate" type="Button" parent="." unique_id=2011408178]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_8ib6b")
+theme_override_font_sizes/font_size = 8
+text = "Activate"

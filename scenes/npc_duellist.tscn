@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bo4lyea62jv7j"]
 
-[ext_resource type="Script" uid="uid://cp0eutcplth3g" path="res://scripts/NPCDuellist.cs" id="1_psh6g"]
+[ext_resource type="Script" uid="uid://cp0eutcplth3g" path="res://scripts/actors/NPCDuellist.cs" id="1_psh6g"]
 [ext_resource type="Script" uid="uid://bvqekvgklqyud" path="res://scripts/interfaces/IInteractable.cs" id="2_phiru"]
 [ext_resource type="AnimationLibrary" uid="uid://k1ws5tiuplca" path="res://assets/animations/player.res" id="2_x4jfw"]
 
